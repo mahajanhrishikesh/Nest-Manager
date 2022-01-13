@@ -7,5 +7,4 @@ Group Members:
   <li>Hrishikesh Mahajan</li>
   <li>Vinayak Bajpayee</li>
   <li>Yash Shekhadar</li>
-  <li></li>
 </ol>
