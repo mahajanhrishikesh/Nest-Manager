@@ -11,8 +11,6 @@ Group Members:
   <li>Yash Shekhadar</li>
 </ol>
 
-Technology Stack:
-
 <b>FrontEnd:</b>
 React.js
 
