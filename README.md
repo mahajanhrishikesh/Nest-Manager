@@ -5,6 +5,6 @@ Group Members:
 
 <ol>
   <li>Hrishikesh Mahajan</li>
-  <li>Vinayak Bajpayee</li>
+  <li>Vinayak Bajpeyi</li>
   <li>Yash Shekhadar</li>
 </ol>
