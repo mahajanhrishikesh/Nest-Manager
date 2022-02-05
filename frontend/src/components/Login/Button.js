@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "../App.css"
+import "./login.css"
 const Button = () => {
 
   async function sendRequest(){
@@ -22,7 +22,11 @@ const Button = () => {
 
   return (
     <div>
+<<<<<<< HEAD:frontend/src/components/Button.js
         <button type="submit" style={{backgroundColor: "green"}} value="Login" onClick={sendRequest}>
+=======
+        <button type="submit" style={{backgroundColor: "blue"}} value="Login">
+>>>>>>> 44e23be099d16c94f56ab72c5f05cdbf13af0d77:frontend/src/components/Login/Button.js
             Login
         </button>
     </div>

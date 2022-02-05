@@ -1,13 +1,11 @@
-import {useState} from "react";
-import Login from "./components/Login"
-import "./App.css"
+import React from 'react';
+import './App.css';
+import Form from './Components/Form/Form';
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <Login/>
-    </div>
-  );
+  return <Form/>
 }
 
 export default App;
