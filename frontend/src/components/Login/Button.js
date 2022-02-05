@@ -1,10 +1,10 @@
 import React from 'react';
 
-import "../App.css"
+import "./login.css"
 const Button = () => {
   return (
     <div>
-        <button type="submit" style={{backgroundColor: "green"}} value="Login">
+        <button type="submit" style={{backgroundColor: "blue"}} value="Login">
             Login
         </button>
     </div>
