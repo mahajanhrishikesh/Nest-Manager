@@ -45,14 +45,18 @@ func main() {
 
 	var user User
 	r.POST("/login", func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
 		reqData, _ := ioutil.ReadAll(c.Request.Body)
 		var lr LoginRequest
 		json.Unmarshal(reqData, &lr)
 		Db.First(&user, "username = ?", lr.Username).Scan(&user)
 		if user.Password == lr.Password {
-			c.String(http.StatusOK, "Login Passed")
+			c.String(http.StatusOK, "{'login': 'success'}")
 		} else {
-			c.String(http.StatusOK, "Login Failed")
+			c.String(http.StatusOK, "{'login': 'failed'}")
 		}
 	})
 	fmt.Println("Starting server...")
