@@ -1,4 +1,5 @@
 import React from 'react'
+import maintenanceRequest from './views/maintenanceRequests'
 import overview from './views/overview'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
@@ -21,6 +22,12 @@ const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
 const Tables = React.lazy(() => import('./views/base/tables/Tables'))
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 const Overview = React.lazy(() => import('./views/overview'))
+const Facilities = React.lazy(() => import('./views/facilities'))
+const MaintenanceRequests = React.lazy(() => import('./views/maintenanceRequests'))
+const Applicants = React.lazy(() => import('./views/applicants'))
+const Apartments = React.lazy(() => import('./views/apartments'));
+const Events = React.lazy(() => import('./views/events'));
+const Leasing = React.lazy(() => import('./views/leasing'));
 
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
@@ -97,7 +104,13 @@ const routes = [
   { path: '/notifications/modals', name: 'Modals', component: Modals },
   { path: '/notifications/toasts', name: 'Toasts', component: Toasts },
   { path: '/widgets', name: 'Widgets', component: Widgets },
-  { path: '/overview', name: 'Overview', component: overview, exact:true}
+  { path: '/overview', name: 'Overview', component: Overview},
+  { path: '/facilities', name: 'Facilities', component: Facilities},
+  { path: '/maintenance-requests', name: 'Maintenance Requests', component: MaintenanceRequests},
+  { path: '/applicants', name: 'Applicants', component: Applicants},
+  { path: '/apartments', name: 'Apartments', component: Apartments},
+  { path: '/events', name: 'Events', component: Events},
+  { path: '/leasing', name: 'Leasing', component: Leasing},
 ]
 
 export default routes
