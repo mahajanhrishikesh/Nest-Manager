@@ -9,12 +9,15 @@ import {
   CContainer,
   CForm,
   CFormInput,
+  CImage,
   CInputGroup,
   CInputGroupText,
   CRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import { logoNegative } from 'src/assets/brand/logo-negative'
+import { sygnet } from 'src/assets/brand/sygnet'
 
 const Login = () => {
   return (
@@ -26,7 +29,8 @@ const Login = () => {
               <CCard className="p-4">
                 <CCardBody>
                   <CForm>
-                    <h1>Login</h1>
+                    <CIcon className="sidebar-brand-full" name="logo-negative" icon={logoNegative} height={100} />
+                    <CImage src='/cover.png'></CImage>
                     <p className="text-medium-emphasis">Sign In to your account</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
