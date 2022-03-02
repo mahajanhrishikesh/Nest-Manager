@@ -1,1 +1,13 @@
 // Here you can add other styles
+.sidebar-brand {
+    display: flex;
+    flex: 0 0 $sidebar-brand-height;
+    align-items: center;
+    justify-content: center;
+    color: var(--#{$variable-prefix}sidebar-brand-color, $sidebar-brand-color);
+    background: rgb(255, 255, 255);
+  
+    .sidebar-brand-narrow {
+      display: none;
+    }
+  }

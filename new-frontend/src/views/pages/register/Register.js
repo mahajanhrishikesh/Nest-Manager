@@ -10,9 +10,10 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
+  CImage,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
+import { cilLockLocked, cilUser, cilCalendar } from '@coreui/icons'
 
 const Register = () => {
   return (
@@ -23,13 +24,19 @@ const Register = () => {
             <CCard className="mx-4">
               <CCardBody className="p-4">
                 <CForm>
-                  <h1>Register</h1>
+                  <CImage src='/cover.png' width={500} height={200}></CImage>
                   <p className="text-medium-emphasis">Create your account</p>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
-                    <CFormInput placeholder="Username" autoComplete="username" />
+                    <CFormInput placeholder="First Name" autoComplete="First Name" />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInputGroupText>
+                      <CIcon icon={cilUser} />
+                    </CInputGroupText>
+                    <CFormInput placeholder="Last Name" autoComplete="Last Name" />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>@</CInputGroupText>
@@ -37,26 +44,12 @@ const Register = () => {
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
-                      <CIcon icon={cilLockLocked} />
+                      <CIcon icon={cilCalendar} />
                     </CInputGroupText>
-                    <CFormInput
-                      type="password"
-                      placeholder="Password"
-                      autoComplete="new-password"
-                    />
-                  </CInputGroup>
-                  <CInputGroup className="mb-4">
-                    <CInputGroupText>
-                      <CIcon icon={cilLockLocked} />
-                    </CInputGroupText>
-                    <CFormInput
-                      type="password"
-                      placeholder="Repeat password"
-                      autoComplete="new-password"
-                    />
+                    <CFormInput type="date" placeholder="First Name" autoComplete="First Name" />
                   </CInputGroup>
                   <div className="d-grid">
-                    <CButton color="success">Create Account</CButton>
+                    <CButton color="success">Apply</CButton>
                   </div>
                 </CForm>
               </CCardBody>
