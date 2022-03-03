@@ -6,7 +6,7 @@
     justify-content: center;
     color: var(--#{$variable-prefix}sidebar-brand-color, $sidebar-brand-color);
     background: rgb(255, 255, 255);
-  
+    border: solid rgb(70, 84, 110);
     .sidebar-brand-narrow {
       display: none;
     }
