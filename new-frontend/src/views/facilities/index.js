@@ -53,104 +53,132 @@ const facilities = (props) => {
   return (
     <div>
         <h2>Facilities</h2>
-        <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }}>
-
+        <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-
           <CCard style={{ width: '18rem' }}>
-
-            {/* <CCardImage orientation="top" src="/images/react.jpg" /> */}
-
             <CCardBody>
-
-              <CCardTitle>Card title</CCardTitle>
-
+              <CCardTitle>Pool</CCardTitle>
               <CCardText>
-
-                Some quick example text to build on the card title and make up the bulk of the card's content.
-
+                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
               </CCardText>
-
               <CButton href="#">Go somewhere</CButton>
-
             </CCardBody>
-
           </CCard>
-
           </CCol>
-
           <CCol xs>
-
             <CCard style={{ width: '18rem' }}>
-
-              {/* <CCardImage orientation="top" src="/images/react.jpg" /> */}
-
               <CCardBody>
-
-                <CCardTitle>Card title</CCardTitle>
-
+                <CCardTitle>Post Boxes</CCardTitle>
                 <CCardText>
-
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
-
+                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
                 </CCardText>
-
                 <CButton href="#">Go somewhere</CButton>
-
               </CCardBody>
-
             </CCard>
-
           </CCol>
-
           <CCol xs>
-
             <CCard style={{ width: '18rem' }}>
-
-  {/* <CCardImage orientation="top" src="/images/react.jpg" /> */}
-
               <CCardBody>
-
-                <CCardTitle>Card title</CCardTitle>
-
+                <CCardTitle>Gym Equipment</CCardTitle>
                 <CCardText>
-
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
-
+                <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
                 </CCardText>
-
                 <CButton href="#">Go somewhere</CButton>
-
               </CCardBody>
-
             </CCard>
-
           </CCol>
-
           <CCol xs>
-
             <CCard style={{ width: '18rem' }}>
-
-              {/* <CCardImage orientation="top" src="/images/react.jpg" /> */}
-
               <CCardBody>
-
-                <CCardTitle>Card title</CCardTitle>
-
+                <CCardTitle>Club House</CCardTitle>
                 <CCardText>
-
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
-
+                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
                 </CCardText>
-
                 <CButton href="#">Go somewhere</CButton>
-
               </CCardBody>
-
             </CCard>
-
           </CCol>
-
+        </CRow>
+        <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
+          <CCol xs>
+          <CCard style={{ width: '18rem' }}>
+            <CCardBody>
+              <CCardTitle>Barbeque Deck</CCardTitle>
+              <CCardText>
+              <li class="mb-1 list-group-item list-group-item-danger rounded">Status: Bad</li>
+              </CCardText>
+              <CButton href="#">Go somewhere</CButton>
+            </CCardBody>
+          </CCard>
+          </CCol>
+          <CCol xs>
+            <CCard style={{ width: '18rem' }}>
+              <CCardBody>
+                <CCardTitle>Basketball Court</CCardTitle>
+                <CCardText>
+                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
+                </CCardText>
+                <CButton href="#">Go somewhere</CButton>
+              </CCardBody>
+            </CCard>
+          </CCol>
+          <CCol xs>
+            <CCard style={{ width: '18rem' }}>
+              <CCardBody>
+                <CCardTitle>Street Lights</CCardTitle>
+                <CCardText>
+                <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
+                </CCardText>
+                <CButton href="#">Go somewhere</CButton>
+              </CCardBody>
+            </CCard>
+          </CCol>
+          <CCol xs>
+            <CCard style={{ width: '18rem' }}>
+              <CCardBody>
+                <CCardTitle>Garbage</CCardTitle>
+                <CCardText>
+                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
+                </CCardText>
+                <CButton href="#">Go somewhere</CButton>
+              </CCardBody>
+            </CCard>
+          </CCol>
+        </CRow>
+        <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
+          <CCol xs>
+          <CCard style={{ width: '18rem' }}>
+            <CCardBody>
+              <CCardTitle>Internet</CCardTitle>
+              <CCardText>
+              <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
+              </CCardText>
+              <CButton href="#">Go somewhere</CButton>
+            </CCardBody>
+          </CCard>
+          </CCol>
+          <CCol xs>
+            <CCard style={{ width: '18rem' }}>
+              <CCardBody>
+                <CCardTitle>Water</CCardTitle>
+                <CCardText>
+                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
+                </CCardText>
+                <CButton href="#">Go somewhere</CButton>
+              </CCardBody>
+            </CCard>
+          </CCol>
+          <CCol xs>
+            <CCard style={{ width: '18rem' }}>
+              <CCardBody>
+                <CCardTitle>Electricity</CCardTitle>
+                <CCardText>
+                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
+                </CCardText>
+                <CButton href="#">Go somewhere</CButton>
+              </CCardBody>
+            </CCard>
+          </CCol>
         </CRow>
     </div>
   )
