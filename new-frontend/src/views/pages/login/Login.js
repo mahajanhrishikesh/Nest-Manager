@@ -17,11 +17,6 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
-function handleLogin()
-{
-  console.log(x);
-  x+=2;
-}
 
 const Login = () => {
   return (
