@@ -9,12 +9,19 @@ import {
   CContainer,
   CForm,
   CFormInput,
+  CImage,
   CInputGroup,
   CInputGroupText,
   CRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+
+function handleLogin()
+{
+  console.log(x);
+  x+=2;
+}
 
 const Login = () => {
   return (
@@ -24,9 +31,9 @@ const Login = () => {
           <CCol md={8}>
             <CCardGroup>
               <CCard className="p-4">
+              <CImage src='/cover.png' width={450} height={200}></CImage>
                 <CCardBody>
                   <CForm>
-                    <h1>Login</h1>
                     <p className="text-medium-emphasis">Sign In to your account</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
@@ -46,7 +53,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
+                        <CButton color="primary" className="px-4" onClick={this.handleLogin}>
                           Login
                         </CButton>
                       </CCol>
@@ -62,14 +69,13 @@ const Login = () => {
               <CCard className="text-white bg-primary py-5" style={{ width: '44%' }}>
                 <CCardBody className="text-center">
                   <div>
-                    <h2>Sign up</h2>
+                    <h2>Not a Tenant?</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua.
+                      Click the "Apply Now!" button to apply for a unit!
                     </p>
                     <Link to="/register">
                       <CButton color="primary" className="mt-3" active tabIndex={-1}>
-                        Register Now!
+                        Apply Now!
                       </CButton>
                     </Link>
                   </div>
