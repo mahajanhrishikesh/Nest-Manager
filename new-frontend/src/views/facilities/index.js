@@ -1,5 +1,4 @@
-import React, { lazy } from 'react'
-
+import React, { lazy } from 'react';
 import {
     CCardImage,
     CCardTitle,
@@ -20,6 +19,7 @@ import {
     CTableHead,
     CTableHeaderCell,
     CTableRow,
+    CModal,
   } from '@coreui/react'
 
   import { CChartLine } from '@coreui/react-chartjs'
@@ -48,7 +48,7 @@ import {
     cilUserFemale,
   } from '@coreui/icons'
 
-
+// const [visible, setVisible] = useState(false)
 const facilities = (props) => {
   return (
     <div>
