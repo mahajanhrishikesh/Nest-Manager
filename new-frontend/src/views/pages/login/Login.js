@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import {
   CButton,
@@ -17,19 +17,19 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
-function handleLogin()
-{
-  console.log(x);
-  x+=2;
-}
 
 const Login = () => {
+
+  const onClickFn = useCallback(() => {
+    console.log(document.getElementById("username").value);
+  });
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={8}>
-            <CCardGroup>
+            <CCardGroup className='shadow'>
               <CCard className="p-4">
               <CImage src='/cover.png' width={450} height={200}></CImage>
                 <CCardBody>
@@ -39,13 +39,14 @@ const Login = () => {
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput id="username" placeholder="Username" autoComplete="username" />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
                         <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
                       <CFormInput
+                        id="password"
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
@@ -53,7 +54,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4" onClick={this.handleLogin}>
+                        <CButton color="primary" className="px-4" onClick={onClickFn}>
                           Login
                         </CButton>
                       </CCol>
