@@ -179,7 +179,19 @@ const facilities = (props) => {
               </CCardBody>
             </CCard>
           </CCol>
+          <CCol xs>
+            <CCard style={{ width: '18rem' }}>
+              <CCardBody>
+                <CCardTitle>Sit-out</CCardTitle>
+                <CCardText>
+                <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
+                </CCardText>
+                <CButton href="#">Get Details</CButton>
+              </CCardBody>
+            </CCard>
+          </CCol>
         </CRow>
+        
     </div>
   )
 }
