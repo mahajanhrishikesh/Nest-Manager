@@ -1,5 +1,4 @@
-import React, { lazy } from 'react'
-
+import React, { lazy } from 'react';
 import {
     CCardImage,
     CCardTitle,
@@ -20,6 +19,7 @@ import {
     CTableHead,
     CTableHeaderCell,
     CTableRow,
+    CModal,
   } from '@coreui/react'
 
   import { CChartLine } from '@coreui/react-chartjs'
@@ -48,7 +48,7 @@ import {
     cilUserFemale,
   } from '@coreui/icons'
 
-
+// const [visible, setVisible] = useState(false)
 const facilities = (props) => {
   return (
     <div>
@@ -59,9 +59,9 @@ const facilities = (props) => {
             <CCardBody>
               <CCardTitle>Pool</CCardTitle>
               <CCardText>
-                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
+                <li className="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
               </CCardText>
-              <CButton href="#">Go somewhere</CButton>
+              <CButton href='#'>Get Details</CButton>
             </CCardBody>
           </CCard>
           </CCol>
@@ -72,7 +72,7 @@ const facilities = (props) => {
                 <CCardText>
                 <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
                 </CCardText>
-                <CButton href="#">Go somewhere</CButton>
+                <CButton href="#">Get Details</CButton>
               </CCardBody>
             </CCard>
           </CCol>
@@ -83,7 +83,7 @@ const facilities = (props) => {
                 <CCardText>
                 <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
                 </CCardText>
-                <CButton href="#">Go somewhere</CButton>
+                <CButton href="#">Get Details</CButton>
               </CCardBody>
             </CCard>
           </CCol>
@@ -94,7 +94,7 @@ const facilities = (props) => {
                 <CCardText>
                 <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
                 </CCardText>
-                <CButton href="#">Go somewhere</CButton>
+                <CButton href="#">Get Details</CButton>
               </CCardBody>
             </CCard>
           </CCol>
@@ -107,7 +107,7 @@ const facilities = (props) => {
               <CCardText>
               <li class="mb-1 list-group-item list-group-item-danger rounded">Status: Bad</li>
               </CCardText>
-              <CButton href="#">Go somewhere</CButton>
+              <CButton href="#">Get Details</CButton>
             </CCardBody>
           </CCard>
           </CCol>
@@ -118,7 +118,7 @@ const facilities = (props) => {
                 <CCardText>
                 <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
                 </CCardText>
-                <CButton href="#">Go somewhere</CButton>
+                <CButton href="#">Get Details</CButton>
               </CCardBody>
             </CCard>
           </CCol>
@@ -129,7 +129,7 @@ const facilities = (props) => {
                 <CCardText>
                 <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
                 </CCardText>
-                <CButton href="#">Go somewhere</CButton>
+                <CButton href="#">Get Details</CButton>
               </CCardBody>
             </CCard>
           </CCol>
@@ -140,7 +140,7 @@ const facilities = (props) => {
                 <CCardText>
                 <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
                 </CCardText>
-                <CButton href="#">Go somewhere</CButton>
+                <CButton href="#">Get Details</CButton>
               </CCardBody>
             </CCard>
           </CCol>
@@ -153,7 +153,7 @@ const facilities = (props) => {
               <CCardText>
               <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
               </CCardText>
-              <CButton href="#">Go somewhere</CButton>
+              <CButton href="#">Get Details</CButton>
             </CCardBody>
           </CCard>
           </CCol>
@@ -164,7 +164,7 @@ const facilities = (props) => {
                 <CCardText>
                 <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
                 </CCardText>
-                <CButton href="#">Go somewhere</CButton>
+                <CButton href="#">Get Details</CButton>
               </CCardBody>
             </CCard>
           </CCol>
@@ -175,7 +175,7 @@ const facilities = (props) => {
                 <CCardText>
                 <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
                 </CCardText>
-                <CButton href="#">Go somewhere</CButton>
+                <CButton href="#">Get Details</CButton>
               </CCardBody>
             </CCard>
           </CCol>
