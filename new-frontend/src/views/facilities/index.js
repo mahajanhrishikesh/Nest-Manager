@@ -52,7 +52,7 @@ import {
 const facilities = (props) => {
   return (
     <div>
-        <h2>Facilities</h2>
+        <h2 id="thisFac">Facilities</h2>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
           <CCard style={{ width: '18rem' }}>
