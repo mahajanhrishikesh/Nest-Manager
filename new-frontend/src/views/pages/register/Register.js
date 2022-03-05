@@ -26,8 +26,9 @@ const Register = () => {
     e.preventDefault();
     const registrationInfo = {fname, lname, email, dob};
 
-    fetch('http://localhost:8080/blogs', {
+    fetch('http://localhost:8080/register', {
       method:'POST',
+      mode: 'no-cors',
       headers: {'Content-Type': 'application/json',
       'cache-control': 'no-cache',
       'Access-Control-Request-Headers':'*',
