@@ -49,7 +49,7 @@ import {
 const events = (props) => {
   return (
     <div>
-        <h2>Events</h2>
+        <h2 id="thisEvent">Events</h2>
     </div>
   )
 }
