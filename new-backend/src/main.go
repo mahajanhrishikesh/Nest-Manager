@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -19,13 +18,20 @@ type User struct {
 	Role     string
 }
 
+type Applicant struct {
+	Fname string 
+	Lname string 
+	Email string 
+	Dob string 
+}
+
 type LoginRequest struct {
 	Username string `json: "username"`
 	Password string `json: "password"`
 }
 
 func main() {
-	Db, err := gorm.Open(sqlite.Open("rms.db"), &gorm.Config{})
+	Db, err := gorm.Open(sqlite.Open("main.db"), &gorm.Config{})
 
 	StartUp(Db, err)
 	r := gin.Default()
@@ -51,14 +57,25 @@ func main() {
 		}
 	})
 
-	r.POST("/blogs", func(c *gin.Context) {
+	r.POST("/register", func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
 		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
 		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
 		reqData, _ := ioutil.ReadAll(c.Request.Body)
-		fmt.Println(reqData)
+		var ap Applicant
+		json.Unmarshal(reqData, &ap)
+		insertRow := Applicant{Fname: ap.Fname, Lname:ap.Lname, Email: ap.Email, Dob: ap.Dob}
+		Db.Create(&insertRow)
 	})
+
+	r.GET("/getAllApplicants", func(c *gin.Context) {
+		var applicants []Applicant
+		result := Db.Find(&applicants)
+		fmt.Println(result)
+		c.JSON(200, applicants)
+	})
+	
 	fmt.Println("Starting server...")
 	r.Run()
 
