@@ -37,7 +37,16 @@ func main() {
 
 	StartUp(Db, err)
 	r := gin.Default()
-	r.Use(cors.Default())
+	r.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"http://localhost:3000"},
+		AllowMethods:     []string{"GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Content-Type"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		AllowOriginFunc: func(origin string) bool {
+			return origin == "https://localhost:3000"
+		},
+	}))
 	r.GET("/ping/:phrase", func(c *gin.Context) {
 		phrase := c.Param("phrase")
 		c.String(http.StatusOK, phrase)
@@ -73,10 +82,6 @@ func main() {
 	})
 
 	r.GET("/getAllApplicants", func(c *gin.Context) {
-		c.Writer.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000, http://localhost:8080")
-		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
-		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-		c.Writer.Header().Set("Access-Control-Allow-Methods", "GET")
 		var applicants []Applicant
 		result := Db.Find(&applicants)
 		fmt.Println(result)
