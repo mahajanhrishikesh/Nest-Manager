@@ -1,5 +1,5 @@
 import React, { lazy, useState, useEffect } from 'react'
-
+// just a sanity check
 import {
     CAvatar,
     CButton,
