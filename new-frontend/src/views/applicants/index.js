@@ -143,22 +143,29 @@ import {
   ]
 const applicants = (props) => {
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   
   const getData = () => {
 
-    fetch('http://localhost:8080/getAllApplicants', {
-      mode:'no-cors',
-      headers: {'Content-Type': 'application/json',
-      'Accept':'application/json' },
-      credentials:"include"
-    }).then(function (response) {
+    fetch("http://localhost:8080/getAllApplicants").then(function (response) {
       console.log(response);
       return response.json();
     }).then(function(myJSON){
       console.log(myJSON);
-      setData(myJSON);
+      setData(JSON.stringify(myJSON));
     })
+
+    // fetch('http://localhost:8080/register', {
+    //   method:'POST',
+    //   mode: 'no-cors',
+    //   headers: {'Content-Type': 'application/json',
+    //   'cache-control': 'no-cache',
+    //   'Access-Control-Request-Headers':'*',
+    //   'Access-Control-Request-Method':'*' },
+    //   body: JSON.stringify(registrationInfo)
+    // }).then(() => {
+    //   console.log(registrationInfo);
+    // })
   }
   useEffect(() => {
     getData()
