@@ -11,7 +11,7 @@ func StartUp(Db *gorm.DB, err error) {
 
 	Db.AutoMigrate(&User{})
 	Db.AutoMigrate(&Applicant{})
-	
+	Db.AutoMigrate(&MaintenanceRequest{})
 
 	Db.Create(&User{Name: "Admin", Username: "Admin", Password: "test", Role: "admin"})
 

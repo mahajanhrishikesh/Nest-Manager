@@ -27,6 +27,15 @@ type Applicant struct {
 	Dob   string
 }
 
+type MaintenanceRequest struct {
+	Mr_no             int
+	Created_on        string
+	Issue_description string
+	Facility          string
+	Issue_tag         string
+	Img               string
+}
+
 type LoginRequest struct {
 	Username string `json: "username"`
 	Password string `json: "password"`
@@ -86,6 +95,13 @@ func main() {
 		result := Db.Find(&applicants)
 		fmt.Println(result)
 		c.JSON(200, applicants)
+	})
+
+	r.GET("/maintenanceRequests", func(c *gin.Context) {
+		var maintenanceRequests []MaintenanceRequest
+		result := Db.Find(&maintenanceRequests)
+		fmt.Println(result)
+		c.JSON(200, maintenanceRequests)
 	})
 
 	fmt.Println("Starting server...")
