@@ -1,4 +1,5 @@
-import React, { lazy } from 'react';
+import React, { lazy, useState } from 'react';
+import Facility from './components/Facility';
 import {
     CCardImage,
     CCardTitle,
@@ -20,6 +21,10 @@ import {
     CTableHeaderCell,
     CTableRow,
     CModal,
+    CModalHeader,
+    CModalTitle,
+    CModalBody,
+    CModalFooter,
   } from '@coreui/react'
 
   import { CChartLine } from '@coreui/react-chartjs'
@@ -48,147 +53,52 @@ import {
     cilUserFemale,
   } from '@coreui/icons'
 
-// const [visible, setVisible] = useState(false)
+
 const facilities = (props) => {
+  const [visible, setVisible] = useState(false);
   return (
     <div>
         <h2 id="thisFac">Facilities</h2>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-          <CCard style={{ width: '18rem' }}>
-            <CCardBody>
-              <CCardTitle>Pool</CCardTitle>
-              <CCardText>
-                <li className="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
-              </CCardText>
-              <CButton href='#'>Get Details</CButton>
-            </CCardBody>
-          </CCard>
+            <Facility cardName="Pool"/>
           </CCol>
           <CCol xs>
-            <CCard style={{ width: '18rem' }}>
-              <CCardBody>
-                <CCardTitle>Post Boxes</CCardTitle>
-                <CCardText>
-                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
-                </CCardText>
-                <CButton href="#">Get Details</CButton>
-              </CCardBody>
-            </CCard>
+          <Facility cardName="Post Boxes"/>
           </CCol>
           <CCol xs>
-            <CCard style={{ width: '18rem' }}>
-              <CCardBody>
-                <CCardTitle>Gym Equipment</CCardTitle>
-                <CCardText>
-                <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
-                </CCardText>
-                <CButton href="#">Get Details</CButton>
-              </CCardBody>
-            </CCard>
+          <Facility cardName="Gym Equipment"/>
           </CCol>
           <CCol xs>
-            <CCard style={{ width: '18rem' }}>
-              <CCardBody>
-                <CCardTitle>Club House</CCardTitle>
-                <CCardText>
-                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
-                </CCardText>
-                <CButton href="#">Get Details</CButton>
-              </CCardBody>
-            </CCard>
+          <Facility cardName="Clun House"/>
           </CCol>
         </CRow>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-          <CCard style={{ width: '18rem' }}>
-            <CCardBody>
-              <CCardTitle>Barbeque Deck</CCardTitle>
-              <CCardText>
-              <li class="mb-1 list-group-item list-group-item-danger rounded">Status: Bad</li>
-              </CCardText>
-              <CButton href="#">Get Details</CButton>
-            </CCardBody>
-          </CCard>
+          <Facility cardName="Barbeque Deck"/>
           </CCol>
           <CCol xs>
-            <CCard style={{ width: '18rem' }}>
-              <CCardBody>
-                <CCardTitle>Basketball Court</CCardTitle>
-                <CCardText>
-                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
-                </CCardText>
-                <CButton href="#">Get Details</CButton>
-              </CCardBody>
-            </CCard>
+          <Facility cardName="Basketball Court"/>
           </CCol>
           <CCol xs>
-            <CCard style={{ width: '18rem' }}>
-              <CCardBody>
-                <CCardTitle>Street Lights</CCardTitle>
-                <CCardText>
-                <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
-                </CCardText>
-                <CButton href="#">Get Details</CButton>
-              </CCardBody>
-            </CCard>
+          <Facility cardName="Street Lights"/>
           </CCol>
           <CCol xs>
-            <CCard style={{ width: '18rem' }}>
-              <CCardBody>
-                <CCardTitle>Garbage</CCardTitle>
-                <CCardText>
-                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
-                </CCardText>
-                <CButton href="#">Get Details</CButton>
-              </CCardBody>
-            </CCard>
+          <Facility cardName="Garbage"/>
           </CCol>
         </CRow>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-          <CCard style={{ width: '18rem' }}>
-            <CCardBody>
-              <CCardTitle>Internet</CCardTitle>
-              <CCardText>
-              <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
-              </CCardText>
-              <CButton href="#">Get Details</CButton>
-            </CCardBody>
-          </CCard>
+          <Facility cardName="Internet"/>
           </CCol>
           <CCol xs>
-            <CCard style={{ width: '18rem' }}>
-              <CCardBody>
-                <CCardTitle>Water</CCardTitle>
-                <CCardText>
-                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
-                </CCardText>
-                <CButton href="#">Get Details</CButton>
-              </CCardBody>
-            </CCard>
+          <Facility cardName="Water"/>
           </CCol>
           <CCol xs>
-            <CCard style={{ width: '18rem' }}>
-              <CCardBody>
-                <CCardTitle>Electricity</CCardTitle>
-                <CCardText>
-                <li class="mb-1 list-group-item list-group-item-success rounded">Status: Excellent</li>
-                </CCardText>
-                <CButton href="#">Get Details</CButton>
-              </CCardBody>
-            </CCard>
+          <Facility cardName="Electricity"/>
           </CCol>
           <CCol xs>
-            <CCard style={{ width: '18rem' }}>
-              <CCardBody>
-                <CCardTitle>Sit-out</CCardTitle>
-                <CCardText>
-                <li class="mb-1 list-group-item list-group-item-warning rounded">Status: Okay</li>
-                </CCardText>
-                <CButton href="#">Get Details</CButton>
-              </CCardBody>
-            </CCard>
+          <Facility cardName="Sit-out"/>
           </CCol>
         </CRow>
         
