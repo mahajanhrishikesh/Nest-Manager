@@ -11,12 +11,12 @@ In this project we will create a one stop rental apartment complex management sy
   <li>Yash Shekhadar</li>
 </ol>
 
-<b>FrontEnd:</b>
-React.js
-Cypess (Testing)
+<b>FrontEnd:</b></br>
+React.js</br>
+Cypess (Testing)</br>
 Members Responsible for FrontEnd: Hrishikesh Mahajan, Vinayak Bajpeyi, Yash Shekhadar
 
-<b>BackEnd:</b>
-Go
+<b>BackEnd:</b></br>
+Go</br>
 Members Responsible for BackEnd: Hrishikesh Mahajan, Vinayak Bajpeyi, Yash Shekhadar
 
