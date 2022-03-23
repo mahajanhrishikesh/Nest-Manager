@@ -13,8 +13,10 @@ In this project we will create a one stop rental apartment complex management sy
 
 <b>FrontEnd:</b>
 React.js
+Cypess (Testing)
+Members Responsible for FrontEnd: Hrishikesh Mahajan, Vinayak Bajpeyi, Yash Shekhadar
 
 <b>BackEnd:</b>
 Go
+Members Responsible for BackEnd: Hrishikesh Mahajan, Vinayak Bajpeyi, Yash Shekhadar
 
-Testing in Cypress
