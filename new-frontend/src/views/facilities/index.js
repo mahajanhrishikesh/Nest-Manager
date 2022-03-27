@@ -70,7 +70,7 @@ const facilities = (props) => {
           <Facility cardName="Gym Equipment"/>
           </CCol>
           <CCol xs>
-          <Facility cardName="Clun House"/>
+          <Facility cardName="Club House"/>
           </CCol>
         </CRow>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">

@@ -68,14 +68,39 @@ const Facility = (props) =>{
               <CButton onClick={() => setVisible(!visible)}>Get Details</CButton>
               <CModal visible={visible} onClose={() => setVisible(false)}>
                 <CModalHeader>
-                  <CModalTitle>Modal title</CModalTitle>
+                  <CModalTitle>{props.cardName} Status</CModalTitle>
                 </CModalHeader>
-                <CModalBody>Woohoo, you&#39;re reading this text in a modal!</CModalBody>
+                <CModalBody>
+                <CTable small>
+                  <CTableHead>
+                    <CTableRow>
+                      <CTableHeaderCell scope="col">#</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Date</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Description</CTableHeaderCell>
+                      <CTableHeaderCell scope="col">Remark</CTableHeaderCell>
+                    </CTableRow>
+                  </CTableHead>
+                  <CTableBody>
+                    <CTableRow color="success">
+                      <CTableHeaderCell scope="row">1</CTableHeaderCell>
+                      <CTableDataCell>03/24/2022</CTableDataCell>
+                      <CTableDataCell>{props.cardName} Unclean</CTableDataCell>
+                      <CTableDataCell>MR resolved</CTableDataCell>
+                    </CTableRow>
+                    <CTableRow color="danger">
+                      <CTableHeaderCell scope="row">1</CTableHeaderCell>
+                      <CTableDataCell>03/25/2022</CTableDataCell>
+                      <CTableDataCell>{props.cardName} Unclean</CTableDataCell>
+                      <CTableDataCell>MR generated</CTableDataCell>
+                    </CTableRow>
+                  </CTableBody>
+                  </CTable>
+                </CModalBody>
                 <CModalFooter>
                   <CButton color="secondary" onClick={() => setVisible(false)}>
                     Close
                   </CButton>
-                  <CButton color="primary">Save changes</CButton>
+                  {/* <CButton color="primary">Save changes</CButton> */}
                 </CModalFooter>
               </CModal>
             </CCardBody>
