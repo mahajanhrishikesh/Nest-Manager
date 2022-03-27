@@ -241,10 +241,10 @@ const maintenanceRequest = (props) => {
           </CTableRow>
         </CTableHead>
         <CTableBody>
-          {data.map((item, index) => (
+          {tableExample.map((item, index) => (
             <CTableRow v-for="item in tableItems" key={index}>
               <CTableDataCell className="text-center">
-                <p>item.Mr_no</p>
+                <p>{item.Mr_no}</p>
               </CTableDataCell>
               <CTableDataCell>
                 <div>{item.user.name}</div>
