@@ -76,6 +76,24 @@ const _nav = [
     ],
   },
   {
+    component: CNavGroup,
+    name: 'Manage Maintenance',
+    to: '/manage-maintenance',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Manage Personnel',
+        to: '/manage-maintenance/manage-personnel',
+      },
+      {
+        component: CNavItem,
+        name: 'Manage Requests',
+        to: '/manage-maintenance/manage-requests',
+      },
+    ],
+  },
+  {
     component: CNavTitle,
     name: 'Theme',
   },
