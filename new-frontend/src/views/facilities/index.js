@@ -56,49 +56,51 @@ import {
 
 const facilities = (props) => {
   const [visible, setVisible] = useState(false);
+
+  // let condition = "mb-1 list-group-item list-group-item-success rounded";
   return (
     <div>
         <h2 id="thisFac">Facilities</h2>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-            <Facility cardName="Pool"/>
+            <Facility cardName="Pool" condition="success"/>
           </CCol>
           <CCol xs>
-          <Facility cardName="Post Boxes"/>
+          <Facility cardName="Post Boxes" condition="success"/>
           </CCol>
           <CCol xs>
-          <Facility cardName="Gym Equipment"/>
+          <Facility cardName="Gym Equipment" condition="warning"/>
           </CCol>
           <CCol xs>
-          <Facility cardName="Club House"/>
-          </CCol>
-        </CRow>
-        <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
-          <CCol xs>
-          <Facility cardName="Barbeque Deck"/>
-          </CCol>
-          <CCol xs>
-          <Facility cardName="Basketball Court"/>
-          </CCol>
-          <CCol xs>
-          <Facility cardName="Street Lights"/>
-          </CCol>
-          <CCol xs>
-          <Facility cardName="Garbage"/>
+          <Facility cardName="Club House" condition="warning"/>
           </CCol>
         </CRow>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-          <Facility cardName="Internet"/>
+          <Facility cardName="Barbeque Deck" condition="danger"/>
           </CCol>
           <CCol xs>
-          <Facility cardName="Water"/>
+          <Facility cardName="Basketball Court" condition="success"/>
           </CCol>
           <CCol xs>
-          <Facility cardName="Electricity"/>
+          <Facility cardName="Street Lights" condition="danger"/>
           </CCol>
           <CCol xs>
-          <Facility cardName="Sit-out"/>
+          <Facility cardName="Garbage" condition="success"/>
+          </CCol>
+        </CRow>
+        <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
+          <CCol xs>
+          <Facility cardName="Internet" condition="warning"/>
+          </CCol>
+          <CCol xs>
+          <Facility cardName="Water" condition="success"/>
+          </CCol>
+          <CCol xs>
+          <Facility cardName="Electricity" condition="success"/>
+          </CCol>
+          <CCol xs>
+          <Facility cardName="Sit-out" condition="warning"/>
           </CCol>
         </CRow>
         

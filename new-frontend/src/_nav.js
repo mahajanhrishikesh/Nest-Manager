@@ -58,10 +58,40 @@ const _nav = [
     icon: <CIcon icon={cilCasino} customClassName="nav-icon" />,
   },
   {
-    component: CNavItem,
+    component: CNavGroup,
     name: 'Leasing',
     to: '/leasing',
     icon: <CIcon icon={cilPen} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Active Leases',
+        to: '/leases/active',
+      },
+      {
+        component: CNavItem,
+        name: 'Create Lease',
+        to: '/buttons/button-groups',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Manage Maintenance',
+    to: '/manage-maintenance',
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Manage Personnel',
+        to: '/manage-maintenance/manage-personnel',
+      },
+      {
+        component: CNavItem,
+        name: 'Manage Requests',
+        to: '/manage-maintenance/manage-requests',
+      },
+    ],
   },
   {
     component: CNavTitle,
