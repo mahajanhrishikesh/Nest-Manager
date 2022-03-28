@@ -56,7 +56,8 @@ import {
 
 const facilities = (props) => {
   const [visible, setVisible] = useState(false);
-  let condition = "mb-1 list-group-item list-group-item-success rounded";
+
+  // let condition = "mb-1 list-group-item list-group-item-success rounded";
   return (
     <div>
         <h2 id="thisFac">Facilities</h2>
