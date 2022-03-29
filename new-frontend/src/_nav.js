@@ -78,7 +78,6 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Manage Maintenance',
-    to: '/manage-maintenance',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
     items: [
       {

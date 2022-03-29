@@ -46,7 +46,7 @@ import {
   } from '@coreui/icons'
 
 
-const events = (props) => {
+const managePersonnel = (props) => {
   return (
     <div>
         <h2 >Manage Personnel</h2>
