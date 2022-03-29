@@ -2,6 +2,8 @@ import React from 'react'
 import maintenanceRequest from './views/maintenanceRequests'
 import overview from './views/overview'
 
+
+
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
@@ -28,6 +30,9 @@ const Applicants = React.lazy(() => import('./views/applicants'))
 const Apartments = React.lazy(() => import('./views/apartments'));
 const Events = React.lazy(() => import('./views/events'));
 const Leasing = React.lazy(() => import('./views/leasing'));
+const ManagePersonnel = React.lazy(() => import('./views/manageMaintenance/managePersonnel'));
+const ManageRequests = React.lazy(() => import('./views/manageMaintenance/manageRequests'));
+
 
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
@@ -111,6 +116,11 @@ const routes = [
   { path: '/apartments', name: 'Apartments', component: Apartments},
   { path: '/events', name: 'Events', component: Events},
   { path: '/leasing', name: 'Leasing', component: Leasing},
+  { path: '/manage-maintenance', name: "Maintenance", component: ManagePersonnel, exact: true},
+  { path: '/manage-maintenance/manage-personnel', name: 'Manage Personnel', component: ManagePersonnel},
+  { path: '/manage-maintenance/manage-requests', name: 'Manage Requests', component: ManageRequests},
+
+
 ]
 
 export default routes
