@@ -7,7 +7,8 @@ import (
 	"net/http"
 
 	"github.com/auth0/go-jwt-middleware"
-	"github.com/dgrijalva/jwt-go"
+	// "github.com/dgrijalva/jwt-go"
+	"github.com/form3tech-oss/jwt-go"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -49,38 +50,38 @@ var products = []Product{
 
 func main() {
 
-	jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options {
-		ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
-		  // Verify 'aud' claim
-		  aud := "YOUR_API_IDENTIFIER"
-		  checkAud := token.Claims.(jwt.MapClaims).VerifyAudience(aud, false)
-		  if !checkAud {
-			  return token, errors.New("Invalid audience.")
-		  }
-		  // Verify 'iss' claim
-		  iss := "https://dev-bqmrpov1.us.auth0.com/"
-		  checkIss := token.Claims.(jwt.MapClaims).VerifyIssuer(iss, false)
-		  if !checkIss {
-			  return token, errors.New("Invalid issuer.")
-		  }
-	
-		  cert, err := getPemCert(token)
-		  if err != nil {
-			  panic(err.Error())
-		  }
-	
-		  result, _ := jwt.ParseRSAPublicKeyFromPEM([]byte(cert))
-		  return result, nil
-		},
-		SigningMethod: jwt.SigningMethodRS256,
-	  })
+    jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options {
+        ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
+          // Verify 'aud' claim
+          aud := "https://golang-auth"
+          checkAud := token.Claims.(jwt.MapClaims).VerifyAudience(aud, false)
+          if !checkAud {
+              return token, errors.New("Invalid audience.")
+          }
+          // Verify 'iss' claim
+          iss := "https://dev-bqmrpov1.us.auth0.com/"
+          checkIss := token.Claims.(jwt.MapClaims).VerifyIssuer(iss, false)
+          if !checkIss {
+              return token, errors.New("Invalid issuer.")
+          }
+    
+          cert, err := getPemCert(token)
+          if err != nil {
+              panic(err.Error())
+          }
+    
+          result, _ := jwt.ParseRSAPublicKeyFromPEM([]byte(cert))
+          return result, nil
+        },
+        SigningMethod: jwt.SigningMethodRS256,
+    })
   
     r := mux.NewRouter()
 
     r.Handle("/", http.FileServer(http.Dir("./views/")))
-	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static/"))))
+    r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static/"))))
 
-	r.Handle("/products", jwtMiddleware.Handler(ProductsHandler)).Methods("GET")
+    r.Handle("/products", jwtMiddleware.Handler(ProductsHandler)).Methods("GET")
     r.Handle("/products/{slug}/feedback", jwtMiddleware.Handler(AddFeedbackHandler)).Methods("POST")
 
   // For dev only - Set up CORS so React client can consume our API
