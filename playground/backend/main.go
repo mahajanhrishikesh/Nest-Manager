@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"github.com/auth0/go-jwt-middleware"
-	"github.com/dgrijalva/jwt-go"
+	"github.com/form3tech-oss/jwt-go"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -52,13 +52,13 @@ func main() {
 	jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options {
 		ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
 		  // Verify 'aud' claim
-		  aud := "YOUR_API_IDENTIFIER"
+		  aud := "https://golang_auth"
 		  checkAud := token.Claims.(jwt.MapClaims).VerifyAudience(aud, false)
 		  if !checkAud {
 			  return token, errors.New("Invalid audience.")
 		  }
 		  // Verify 'iss' claim
-		  iss := "https://dev-bqmrpov1.us.auth0.com/"
+		  iss := "https://dev-ng1x1ymp.us.auth0.com/"
 		  checkIss := token.Claims.(jwt.MapClaims).VerifyIssuer(iss, false)
 		  if !checkIss {
 			  return token, errors.New("Invalid issuer.")
@@ -78,9 +78,9 @@ func main() {
     r := mux.NewRouter()
 
     r.Handle("/", http.FileServer(http.Dir("./views/")))
-	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static/"))))
+  r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static/"))))
 
-	r.Handle("/products", jwtMiddleware.Handler(ProductsHandler)).Methods("GET")
+  r.Handle("/products", jwtMiddleware.Handler(ProductsHandler)).Methods("GET")
     r.Handle("/products/{slug}/feedback", jwtMiddleware.Handler(AddFeedbackHandler)).Methods("POST")
 
   // For dev only - Set up CORS so React client can consume our API
@@ -121,7 +121,7 @@ var AddFeedbackHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Re
 
 func getPemCert(token *jwt.Token) (string, error) {
     cert := ""
-    resp, err := http.Get("https://dev-bqmrpov1.us.auth0.com/.well-known/jwks.json")
+    resp, err := http.Get("https://dev-ng1x1ymp.us.auth0.com/.well-known/jwks.json")
 
     if err != nil {
         return cert, err
