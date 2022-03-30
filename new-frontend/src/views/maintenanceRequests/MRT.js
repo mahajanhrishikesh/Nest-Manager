@@ -35,6 +35,23 @@ function MRT(props) {
           <CTableDataCell>
             <div>{item.Issue_tag}</div>
           </CTableDataCell>
+          <CTableDataCell>
+            <div>
+            <CDropdown variant="btn-group">
+                <CButton color="secondary" size="sm">
+                  Assign
+                </CButton>
+                <CDropdownToggle color="secondary" size="sm" split />
+                <CDropdownMenu>
+                  <CDropdownItem href="#">Action</CDropdownItem>
+                  <CDropdownItem href="#">Another action</CDropdownItem>
+                  <CDropdownItem href="#">Something else here</CDropdownItem>
+                  <CDropdownDivider />
+                  <CDropdownItem href="#">Separated link</CDropdownItem>
+                </CDropdownMenu>
+              </CDropdown>
+            </div>
+          </CTableDataCell>
         </CTableRow>
       ))}
   </>
