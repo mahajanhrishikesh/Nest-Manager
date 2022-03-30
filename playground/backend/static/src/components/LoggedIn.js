@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
-
+import createAuth0Client from '@auth0/auth0-spa-js';
 const LoggedIn = () => {
   const [products, setProducts] = useState([]);
   const [voted, setVoted] = useState({
@@ -20,6 +20,13 @@ const LoggedIn = () => {
     logout,
     isAuthenticated,
   } = useAuth0();
+
+  const auth0 = createAuth0Client({
+    domain: 'dev-bqmrpov1.us.auth0.com',
+    client_id: 'loWvuyPf3WEXOYXhppWWIblXWNFQX557',
+    audience: 'https://golang-auth',
+    useRefreshTokens: true
+  });
 
   useEffect(() => {
     const getProducts = async () => {
@@ -40,7 +47,7 @@ const LoggedIn = () => {
         });
 
         const responseData = await response.json();
-
+        console.log(responseData);
         setProducts(responseData);
       } catch (error) {
         console.error(error);
