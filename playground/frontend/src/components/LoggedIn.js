@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
-import createAuth0Client from '@auth0/auth0-spa-js';
+
 const LoggedIn = () => {
   const [products, setProducts] = useState([]);
   const [voted, setVoted] = useState({
@@ -15,47 +15,38 @@ const LoggedIn = () => {
 
   const {
     getTokenSilently,
+    getTokenWithPopup,
     loading,
     user,
     logout,
     isAuthenticated,
   } = useAuth0();
 
-  const auth0 = createAuth0Client({
-    domain: 'dev-bqmrpov1.us.auth0.com',
-    client_id: 'loWvuyPf3WEXOYXhppWWIblXWNFQX557',
-    audience: 'https://golang-auth',
-    useRefreshTokens: true
-  });
-
   useEffect(() => {
     const getProducts = async () => {
       try {
-        // const token = await getTokenSilently();
         const token = await getTokenSilently({
-          audience: "https://golang-auth",
+            audience: "https://golang_auth"
         });
-        
         // Send a GET request to the server and add the signed in user's
         // access token in the Authorization header
-        console.log(token);
         const response = await fetch("http://localhost:8080/products", {
-          method:"GET",
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
         const responseData = await response.json();
-        console.log(responseData);
+
         setProducts(responseData);
       } catch (error) {
+
         console.error(error);
       }
     };
 
     getProducts();
-  }, []);
+  });
 
   const vote = async (slug, type, index) => {
     try {
