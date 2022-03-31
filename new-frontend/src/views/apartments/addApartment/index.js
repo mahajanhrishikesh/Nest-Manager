@@ -1,4 +1,4 @@
-import React, { lazy, useState} from 'react'
+import React, { lazy, useState, useRef} from 'react'
 
 import {
     CButton,
@@ -12,6 +12,11 @@ import {
     CFormSelect,
     CRow,
     CForm,
+    CToast,
+    CToaster,
+    CToastBody,
+    CToastClose,
+
   } from '@coreui/react'
 
 
@@ -39,12 +44,23 @@ const addApartment = (props) => {
         })
     }
 
+    const [toast, addToast] = useState(0)
+    const toaster = useRef()
+    const confirmationToast = (
+        <CToast color="success" className="text-white align-items-center">
+            <div className="d-flex">
+                <CToastBody>Apartment number {apt_no} added successfully!</CToastBody>
+                <CToastClose className="me-2 m-auto" white />
+            </div>
+        </CToast>
+    )
+
   return (
     <div>
         <h2 id="thisEvent">Add Apartment</h2>
         <CCard >
             <CCardBody>
-                <CCardTitle>Fill Apartment Details</CCardTitle>
+                <CCardTitle>Fill details of the new Apartment </CCardTitle>
                     <CForm onSubmit={handleSubmit}>
                         <CRow xs={{gutter: 2}} className="mb-3">
                             <CCol md>
@@ -79,7 +95,8 @@ const addApartment = (props) => {
                             </CFormFloating>
                             </CCol>
                         </CRow>
-                        <CButton type="submit">Submit</CButton>
+                        <CButton type="submit" onClick={() => addToast(confirmationToast)}>Submit</CButton>
+                        <CToaster ref={toaster} push={toast} placement="top-end" />
                     </CForm>
             </CCardBody>
         </CCard>
