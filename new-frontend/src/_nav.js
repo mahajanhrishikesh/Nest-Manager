@@ -46,10 +46,26 @@ const _nav = [
     icon: <CIcon icon={cilUserPlus} customClassName="nav-icon" />,
   },
   {
-    component: CNavItem,
+    component: CNavGroup,
     name: 'Apartments',
-    to: '/apartments',
-    icon: <CIcon icon={cilRoom} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Add Apartment',
+        to: '/apartments/add-apartment',
+      },
+      {
+        component: CNavItem,
+        name: 'Remove Apartment',
+        to: '/apartments/remove-apartment',
+      },
+      {
+        component: CNavItem,
+        name: 'View Apartments',
+        to: '/apartments/view-apartments',
+      },
+    ],
   },
   {
     component: CNavItem,
