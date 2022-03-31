@@ -50,6 +50,30 @@ const managePersonnel = (props) => {
   return (
     <div>
         <h2 >Manage Personnel</h2>
+       
+              <CTable align="middle" responsive>
+                <CTableHead>
+                  <CTableRow>
+                    <CTableHeaderCell scope="col" className="w-25">
+                      Personnel Id
+                    </CTableHeaderCell>
+                    <CTableHeaderCell scope="col" className="w-25">
+                      Name
+                    </CTableHeaderCell>
+                    <CTableHeaderCell scope="col" className="w-25">
+                      Hours Worked
+                    </CTableHeaderCell>
+                    <CTableHeaderCell scope="col" className="w-25">
+                      Primary Work
+                    </CTableHeaderCell>
+                  </CTableRow>
+                </CTableHead>
+                <CTableBody>
+                {/* {data && <MM tData ={data}/>} */}
+                   
+                </CTableBody>
+              </CTable>
+            
     </div>
   )
 }

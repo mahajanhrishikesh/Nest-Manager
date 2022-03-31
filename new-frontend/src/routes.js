@@ -1,4 +1,5 @@
 import React from 'react'
+import viewApartments from './views/apartments/viewApartments'
 import maintenanceRequest from './views/maintenanceRequests'
 import overview from './views/overview'
 
@@ -27,11 +28,13 @@ const Overview = React.lazy(() => import('./views/overview'))
 const Facilities = React.lazy(() => import('./views/facilities'))
 const MaintenanceRequests = React.lazy(() => import('./views/maintenanceRequests'))
 const Applicants = React.lazy(() => import('./views/applicants'))
-const Apartments = React.lazy(() => import('./views/apartments'));
 const Events = React.lazy(() => import('./views/events'));
 const Leasing = React.lazy(() => import('./views/leasing'));
 const ManagePersonnel = React.lazy(() => import('./views/manageMaintenance/managePersonnel'));
 const ManageRequests = React.lazy(() => import('./views/manageMaintenance/manageRequests'));
+const AddApartment = React.lazy(() => import('./views/apartments/addApartment'));
+const RemoveApartment = React.lazy(() => import('./views/apartments/removeApartment'));
+const ViewApartments = React.lazy(() => import('./views/apartments/viewApartments'));
 
 
 // Buttons
@@ -113,12 +116,18 @@ const routes = [
   { path: '/facilities', name: 'Facilities', component: Facilities},
   { path: '/maintenance-requests', name: 'Maintenance Requests', component: MaintenanceRequests},
   { path: '/applicants', name: 'Applicants', component: Applicants},
-  { path: '/apartments', name: 'Apartments', component: Apartments},
   { path: '/events', name: 'Events', component: Events},
   { path: '/leasing', name: 'Leasing', component: Leasing},
   { path: '/manage-maintenance', name: "Maintenance", component: ManagePersonnel, exact: true},
   { path: '/manage-maintenance/manage-personnel', name: 'Manage Personnel', component: ManagePersonnel},
   { path: '/manage-maintenance/manage-requests', name: 'Manage Requests', component: ManageRequests},
+
+  { path: '/apartments', name: 'apartments', component: RemoveApartment, exact:true},
+  { path: '/apartments/add-apartment', name: 'Add Apartment', component: AddApartment},
+  { path: '/apartments/remove-apartment', name: 'Remove Apartment', component: RemoveApartment},
+  { path: '/apartments/view-apartments', name: 'View Apartments', component: ViewApartments},
+  
+  
 
 
 ]
