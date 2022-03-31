@@ -65,6 +65,18 @@ func main() {
 		Db.Create(&insertRow)
 	})
 
+	r.POST("/removeApartment", func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+		reqData, _ := ioutil.ReadAll(c.Request.Body)
+		var adr Apartment
+		json.Unmarshal(reqData, &adr)
+		delRow := Apartment{Apt_No: adr.Apt_No, Block_No: adr.Block_No}
+		Db.Where("Apt_No = ?", adr.Apt_No).Where("Block_No = ?", adr.Block_No).Delete(&delRow)
+	})
+
 	r.GET("/getAllApartments", func(c *gin.Context) {
 		var apartments []Apartment
 		result := Db.Find(&apartments)

@@ -58,6 +58,25 @@ import {
 
 
 const removeApartment = (props) => {
+    const[Apt_No, setAptNo] = useState();
+    const[Block_No, setBlockNo] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const info = {Apt_No, Block_No};
+
+    fetch('http://localhost:8080/removeApartment', {
+      method:'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'application/json',
+      'cache-control': 'no-cache',
+      'Access-Control-Request-Headers':'*',
+      'Access-Control-Request-Method':'*' },
+      body: JSON.stringify(info)
+    }).then(() => {
+      console.log(info);
+    })
+  }
 
     const [visible, setVisible] = useState(false)
   return (
@@ -66,22 +85,22 @@ const removeApartment = (props) => {
         <CCard >
             <CCardBody>
                 <CCardTitle className="mb-3">Fill details of apartment to be removed</CCardTitle>
-                <CForm>
+                <CForm  onSubmit={handleSubmit}>
                     <CRow xs={{gutter: 2}} className="mb-3">
                         <CCol md>
                             <CFormFloating >
-                                <CFormInput type="integer" id="aptNo"/>
+                                <CFormInput type="integer" id="aptNo" onChange={(e) => setAptNo(parseInt(e.target.value))}/>
                                 <CFormLabel htmlFor="aptNo">Apartment Number</CFormLabel>
                             </CFormFloating>
                         </CCol>
                         <CCol md>
                             <CFormFloating >
-                                <CFormInput type="text" id="blockNo"/>
+                                <CFormInput type="integer" id="blockNo" onChange={(e) => setBlockNo(parseInt(e.target.value))}/>
                                 <CFormLabel htmlFor="blockNo">Block Number</CFormLabel>
                             </CFormFloating>
                         </CCol>
                     </CRow>
-                    <CButton type="submit" onClick={() => setVisible(!visible)}>Submit</CButton>
+                    <CButton type='submit' >Submit</CButton>
                     <CModal visible={visible} onClose={() => setVisible(false)}>
                         <CModalHeader onClose={() => setVisible(false)}>
                             <CModalTitle>Apartment Removal Confirmation</CModalTitle>
@@ -95,7 +114,7 @@ const removeApartment = (props) => {
                             <CButton color="secondary" onClick={() => setVisible(false)}>
                             Cancel
                             </CButton>
-                            <CButton color="primary">Confirm</CButton>
+                            <CButton  color="primary"  onClick={() => setVisible(false)}>Confirm</CButton>
                         </CModalFooter>
                     </CModal>
                 </CForm>
