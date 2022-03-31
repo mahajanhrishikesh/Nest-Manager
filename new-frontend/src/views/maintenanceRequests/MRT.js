@@ -1,6 +1,12 @@
 import {
     CTableDataCell,
     CTableRow,
+    CDropdown,
+    CDropdownItem,
+    CDropdownDivider,
+    CDropdownMenu,
+    CButton,
+    CDropdownToggle
   } from '@coreui/react'
 function MRT(props) {
     return <>
@@ -29,18 +35,18 @@ function MRT(props) {
                 </CButton>
                 <CDropdownToggle color="secondary" size="sm" split />
                 <CDropdownMenu>
-                  <CDropdownItem href="#">Action</CDropdownItem>
-                  <CDropdownItem href="#">Another action</CDropdownItem>
-                  <CDropdownItem href="#">Something else here</CDropdownItem>
+                  <CDropdownItem>Action</CDropdownItem>
+                  <CDropdownItem>Another action</CDropdownItem>
+                  <CDropdownItem>Something else here</CDropdownItem>
                   <CDropdownDivider />
-                  <CDropdownItem href="#">Separated link</CDropdownItem>
+                  <CDropdownItem>Separated link</CDropdownItem>
                 </CDropdownMenu>
               </CDropdown>
             </div>
           </CTableDataCell>
         </CTableRow>
       ))}
-  </>
+    </>
 }
 
 export default MRT;
