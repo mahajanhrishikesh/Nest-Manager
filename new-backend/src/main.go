@@ -27,18 +27,6 @@ func main() {
 		},
 	}))
 
-	r.POST("/register", func(c *gin.Context) {
-		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
-		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
-		reqData, _ := ioutil.ReadAll(c.Request.Body)
-		var ap Applicant
-		json.Unmarshal(reqData, &ap)
-		insertRow := Applicant{Fname: ap.Fname, Lname: ap.Lname, Email: ap.Email, Dob: ap.Dob}
-		Db.Create(&insertRow)
-	})
-
 	r.GET("/getAllApplicants", func(c *gin.Context) {
 		var applicants []Applicant
 		result := Db.Find(&applicants)
@@ -51,6 +39,37 @@ func main() {
 		result := Db.Find(&maintenanceRequests)
 		fmt.Println(result)
 		c.JSON(200, maintenanceRequests)
+	})
+
+	r.POST("/register", func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+		reqData, _ := ioutil.ReadAll(c.Request.Body)
+		var ap Applicant
+		json.Unmarshal(reqData, &ap)
+		insertRow := Applicant{Fname: ap.Fname, Lname: ap.Lname, Email: ap.Email, Dob: ap.Dob}
+		Db.Create(&insertRow)
+	})
+
+	r.POST("/createApartment", func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+		reqData, _ := ioutil.ReadAll(c.Request.Body)
+		var ap Apartment
+		json.Unmarshal(reqData, &ap)
+		insertRow := Apartment{Apt_No: ap.Apt_No, Block_No: ap.Block_No, Room_Count: ap.Room_Count, Furniture_Status: ap.Furniture_Status, Occupancy: 0}
+		Db.Create(&insertRow)
+	})
+
+	r.GET("/getAllApartments", func(c *gin.Context) {
+		var apartments []Apartment
+		result := Db.Find(&apartments)
+		fmt.Println(result)
+		c.JSON(200, apartments)
 	})
 
 	fmt.Println("Starting server...")
