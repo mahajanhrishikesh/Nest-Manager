@@ -55,66 +55,22 @@ const managePersonnel = (props) => {
                 <CTableHead>
                   <CTableRow>
                     <CTableHeaderCell scope="col" className="w-25">
-                      Heading 1
+                      Personnel Id
                     </CTableHeaderCell>
                     <CTableHeaderCell scope="col" className="w-25">
-                      Heading 2
+                      Name
                     </CTableHeaderCell>
                     <CTableHeaderCell scope="col" className="w-25">
-                      Heading 3
+                      Hours Worked
                     </CTableHeaderCell>
                     <CTableHeaderCell scope="col" className="w-25">
-                      Heading 4
+                      Primary Work
                     </CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
-                  <CTableRow>
-                    <CTableDataCell>
-                      This cell inherits <code>vertical-align: middle;</code> from the table
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      This cell inherits <code>vertical-align: middle;</code> from the table
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      This cell inherits <code>vertical-align: middle;</code> from the table
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      This here is some placeholder text, intended to take up quite a bit of
-                      vertical space, to demonsCTableRowate how the vertical alignment works in the
-                      preceding cells.
-                    </CTableDataCell>
-                  </CTableRow>
-                  <CTableRow align="bottom">
-                    <CTableDataCell>
-                      This cell inherits <code>vertical-align: bottom;</code> from the table row
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      This cell inherits <code>vertical-align: bottom;</code> from the table row
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      This cell inherits <code>vertical-align: bottom;</code> from the table row
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      This here is some placeholder text, intended to take up quite a bit of
-                      vertical space, to demonsCTableRowate how the vertical alignment works in the
-                      preceding cells.
-                    </CTableDataCell>
-                  </CTableRow>
-                  <CTableRow>
-                    <CTableDataCell>
-                      This cell inherits <code>vertical-align: middle;</code> from the table
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      This cell inherits <code>vertical-align: middle;</code> from the table
-                    </CTableDataCell>
-                    <CTableDataCell align="top">This cell is aligned to the top.</CTableDataCell>
-                    <CTableDataCell>
-                      This here is some placeholder text, intended to take up quite a bit of
-                      vertical space, to demonsCTableRowate how the vertical alignment works in the
-                      preceding cells.
-                    </CTableDataCell>
-                  </CTableRow>
+                {/* {data && <MM tData ={data}/>} */}
+                   
                 </CTableBody>
               </CTable>
             
