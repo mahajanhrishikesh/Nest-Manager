@@ -13,10 +13,11 @@ type User struct {
 }
 
 type Applicant struct {
-	Fname string
-	Lname string
-	Email string
-	Dob   string
+	Fname    string
+	Lname    string
+	Email    string
+	Dob      string
+	Accepted int
 }
 
 type MaintenanceRequest struct {

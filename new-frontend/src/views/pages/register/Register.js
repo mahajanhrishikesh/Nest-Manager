@@ -24,7 +24,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const registrationInfo = {fname, lname, email, dob};
+    const registrationInfo = {fname, lname, email, dob, "accepted":0};
 
     fetch('http://localhost:8080/register', {
       method:'POST',

@@ -49,7 +49,7 @@ func main() {
 		reqData, _ := ioutil.ReadAll(c.Request.Body)
 		var ap Applicant
 		json.Unmarshal(reqData, &ap)
-		insertRow := Applicant{Fname: ap.Fname, Lname: ap.Lname, Email: ap.Email, Dob: ap.Dob}
+		insertRow := Applicant{Fname: ap.Fname, Lname: ap.Lname, Email: ap.Email, Dob: ap.Dob, Accepted: ap.Accepted}
 		Db.Create(&insertRow)
 	})
 
