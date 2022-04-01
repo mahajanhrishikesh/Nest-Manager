@@ -29,7 +29,7 @@ func main() {
 
 	r.GET("/getAllApplicants", func(c *gin.Context) {
 		var applicants []Applicant
-		result := Db.Find(&applicants)
+		result := Db.Where("Accepted = ?", 0).Find(&applicants)
 		fmt.Println(result)
 		c.JSON(200, applicants)
 	})
