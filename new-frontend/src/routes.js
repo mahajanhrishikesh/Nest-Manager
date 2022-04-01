@@ -1,5 +1,7 @@
 import React from 'react'
 import viewApartments from './views/apartments/viewApartments'
+import activeLeases from './views/leasing/activeLeases'
+import createLease from './views/leasing/createLease'
 import maintenanceRequest from './views/maintenanceRequests'
 import overview from './views/overview'
 
@@ -29,7 +31,8 @@ const Facilities = React.lazy(() => import('./views/facilities'))
 const MaintenanceRequests = React.lazy(() => import('./views/maintenanceRequests'))
 const Applicants = React.lazy(() => import('./views/applicants'))
 const Events = React.lazy(() => import('./views/events'));
-const Leasing = React.lazy(() => import('./views/leasing'));
+const CreateLease = React.lazy(() => import('./views/leasing/createLease'));
+const ActiveLeases = React.lazy(() => import('./views/leasing/activeLeases'));
 const ManagePersonnel = React.lazy(() => import('./views/manageMaintenance/managePersonnel'));
 const ManageRequests = React.lazy(() => import('./views/manageMaintenance/manageRequests'));
 const AddApartment = React.lazy(() => import('./views/apartments/addApartment'));
@@ -117,7 +120,6 @@ const routes = [
   { path: '/maintenance-requests', name: 'Maintenance Requests', component: MaintenanceRequests},
   { path: '/applicants', name: 'Applicants', component: Applicants},
   { path: '/events', name: 'Events', component: Events},
-  { path: '/leasing', name: 'Leasing', component: Leasing},
   { path: '/manage-maintenance', name: "Maintenance", component: ManagePersonnel, exact: true},
   { path: '/manage-maintenance/manage-personnel', name: 'Manage Personnel', component: ManagePersonnel},
   { path: '/manage-maintenance/manage-requests', name: 'Manage Requests', component: ManageRequests},
@@ -126,10 +128,10 @@ const routes = [
   { path: '/apartments/add-apartment', name: 'Add Apartment', component: AddApartment},
   { path: '/apartments/remove-apartment', name: 'Remove Apartment', component: RemoveApartment},
   { path: '/apartments/view-apartments', name: 'View Apartments', component: ViewApartments},
-  
-  
 
-
+  { path: '/leasing', name: 'Leasing', component: ActiveLeases, exact:true},
+  { path: '/leasing/active-leases', name: 'Active Leases', component: ActiveLeases},
+  { path: '/leasing/create-lease', name: 'Create Lease', component: CreateLease},
 ]
 
 export default routes

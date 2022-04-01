@@ -79,18 +79,17 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Leasing',
-    to: '/leasing',
     icon: <CIcon icon={cilPen} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'Active Leases',
-        to: '/leases/active',
+        to: '/leasing/active-leases',
       },
       {
         component: CNavItem,
         name: 'Create Lease',
-        to: '/buttons/button-groups',
+        to: '/leasing/create-lease',
       },
     ],
   },
