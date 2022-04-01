@@ -57,6 +57,15 @@ import {
 
 const Facility = (props) =>{
     const [visible, setVisible] = useState(false)
+    // console.log("Ramu",props.data);
+    let mrHistory = [];
+    for(var i in props.data)
+    {
+      if (props.data[i].Facility === props.cardName)
+      {
+        mrHistory.push([props.data[i].Facility,props.data[i].Created_on]);
+      }
+    }
 
     return(
         <CCard style={{ width: '18rem' }}>

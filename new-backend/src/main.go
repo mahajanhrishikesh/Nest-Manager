@@ -84,6 +84,13 @@ func main() {
 		c.JSON(200, apartments)
 	})
 
+	// r.GET("/getFacilities", func(c *gin.Context) {
+	// 	var facilities []Facilities
+	// 	result := Db.Find(&facilities)
+	// 	fmt.Println(result)
+	// 	c.JSON(200, facilities)
+	// })
+
 	fmt.Println("Starting server...")
 	r.Run()
 

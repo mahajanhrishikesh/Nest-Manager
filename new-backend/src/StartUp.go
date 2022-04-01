@@ -13,5 +13,6 @@ func StartUp(Db *gorm.DB, err error) {
 	Db.AutoMigrate(&Applicant{})
 	Db.AutoMigrate(&MaintenanceRequest{})
 	Db.AutoMigrate(&Apartment{})
+	// Db.AutoMigrate(&Facilities{})
 
 }

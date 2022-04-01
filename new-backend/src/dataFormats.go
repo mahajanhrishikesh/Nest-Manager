@@ -36,3 +36,4 @@ type Apartment struct {
 	Occupancy        int
 	Furniture_Status string
 }
+
