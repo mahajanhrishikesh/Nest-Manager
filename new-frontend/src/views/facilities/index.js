@@ -1,4 +1,4 @@
-import React, { lazy, useState } from 'react';
+import React, { lazy, useState, useEffect } from 'react';
 import Facility from './components/Facility';
 import {
     CCardImage,
@@ -56,6 +56,22 @@ import {
 
 const facilities = (props) => {
   const [visible, setVisible] = useState(false);
+  const [data, setData] = useState(null);
+  // let facilitiesMap = {};
+    const getData = () => {
+  
+      fetch("http://localhost:8080/maintenanceRequests").then(function (response) {
+        console.log(response);
+        return response.json();
+      }).then(function(myJSON){
+        console.log(myJSON);
+        setData(myJSON);
+        // generateMap(data);
+      })
+    }
+    useEffect(() => {
+      getData()
+    },[])
 
   // let condition = "mb-1 list-group-item list-group-item-success rounded";
   return (
@@ -63,47 +79,46 @@ const facilities = (props) => {
         <h2 id="thisFac">Facilities</h2>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-            <Facility cardName="Pool" condition="success"/>
+            {data && <Facility cardName="Pool" condition="success" data ={data}/>}
           </CCol>
           <CCol xs>
-          <Facility cardName="Post Boxes" condition="success"/>
+            {data && <Facility cardName="Post Boxes" condition="success" data ={data}/>}
           </CCol>
           <CCol xs>
-          <Facility cardName="Gym Equipment" condition="warning"/>
+            {data && <Facility cardName="Gym Equipment" condition="warning" data ={data}/>}
           </CCol>
           <CCol xs>
-          <Facility cardName="Club House" condition="warning"/>
+            {data && <Facility cardName="Club House" condition="warning" data ={data}/>}
           </CCol>
         </CRow>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-          <Facility cardName="Barbeque Deck" condition="danger"/>
+            {data && <Facility cardName="Barbeque Deck" condition="danger" data ={data}/>}
           </CCol>
           <CCol xs>
-          <Facility cardName="Basketball Court" condition="success"/>
+            {data && <Facility cardName="Basketball Court" condition="success" data ={data}/>}
           </CCol>
           <CCol xs>
-          <Facility cardName="Street Lights" condition="danger"/>
+            {data && <Facility cardName="Street Lights" condition="danger" data ={data}/>}
           </CCol>
           <CCol xs>
-          <Facility cardName="Garbage" condition="success"/>
+            {data && <Facility cardName="Garbage" condition="success" data ={data}/>}
           </CCol>
         </CRow>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-          <Facility cardName="Internet" condition="warning"/>
+            {data && <Facility cardName="Internet" condition="warning" data ={data}/>}
           </CCol>
           <CCol xs>
-          <Facility cardName="Water" condition="success"/>
+            {data && <Facility cardName="Water" condition="success" data ={data}/>}
           </CCol>
           <CCol xs>
-          <Facility cardName="Electricity" condition="success"/>
+            {data && <Facility cardName="Electricity" condition="success" data ={data}/>}
           </CCol>
           <CCol xs>
-          <Facility cardName="Sit-out" condition="warning"/>
+            {data && <Facility cardName="Sit-out" condition="warning" data ={data}/>}
           </CCol>
         </CRow>
-        
     </div>
   )
 }
