@@ -59,14 +59,16 @@ const Facility = (props) =>{
     const [visible, setVisible] = useState(false)
     // console.log("Ramu",props.data);
     let mrHistory = [];
+    let idx = 1;
     for(var i in props.data)
     {
       if (props.data[i].Facility === props.cardName)
       {
-        mrHistory.push([props.data[i].Facility,props.data[i].Created_on]);
+        mrHistory.push([idx, props.data[i].Issue_description, props.data[i].Created_on]);
+        idx++;
       }
     }
-
+    console.log(mrHistory);
     return(
         <CCard style={{ width: '18rem' }}>
             <CCardBody>
@@ -80,7 +82,7 @@ const Facility = (props) =>{
                   <CModalTitle>{props.cardName} Status</CModalTitle>
                 </CModalHeader>
                 <CModalBody>
-                <CTable small>
+                <CTable striped>
                   <CTableHead>
                     <CTableRow>
                       <CTableHeaderCell scope="col">#</CTableHeaderCell>
@@ -90,20 +92,24 @@ const Facility = (props) =>{
                     </CTableRow>
                   </CTableHead>
                   <CTableBody>
-                    <CTableRow color="success">
-                      <CTableHeaderCell scope="row">1</CTableHeaderCell>
-                      <CTableDataCell>03/24/2022</CTableDataCell>
-                      <CTableDataCell>{props.cardName} Unclean</CTableDataCell>
-                      <CTableDataCell>MR resolved</CTableDataCell>
-                    </CTableRow>
-                    <CTableRow color="danger">
-                      <CTableHeaderCell scope="row">1</CTableHeaderCell>
-                      <CTableDataCell>03/25/2022</CTableDataCell>
-                      <CTableDataCell>{props.cardName} Unclean</CTableDataCell>
-                      <CTableDataCell>MR generated</CTableDataCell>
-                    </CTableRow>
+                    {mrHistory.map(mr=>(
+                      <CTableRow key={mr}>
+                        <CTableHeaderCell scope="row" className="text-center">
+                          {mr[0]}
+                        </CTableHeaderCell>
+                        <CTableDataCell>
+                          {mr[2]}
+                        </CTableDataCell>
+                        <CTableDataCell>
+                          {mr[1]}
+                        </CTableDataCell>
+                        <CTableDataCell>
+                          -
+                        </CTableDataCell>
+                      </CTableRow>
+                    ))}
                   </CTableBody>
-                  </CTable>
+                </CTable>
                 </CModalBody>
                 <CModalFooter>
                   <CButton color="secondary" onClick={() => setVisible(false)}>
