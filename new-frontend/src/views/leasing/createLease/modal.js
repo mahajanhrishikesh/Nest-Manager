@@ -41,28 +41,29 @@ import {
 
 const LeaseModal = (props) =>{
     const [visible, setVisible] = useState(false)
-    const email = props.Email;
-    const [bno, setBNo] = useState()
-    const [uno, setUNo] = useState()
+    const [email, setEmail] = useState(props.email)
+    const [building_no, setBNo] = useState()
+    const [unit_no, setUNo] = useState()
     const [room, setRoom] = useState()
-    const [fromDate, setFromDate] = useState()
-    const [toDate, setToDate] = useState()
+    const [from_date, setFromDate] = useState()
+    const [to_date, setToDate] = useState()
     const [rent, setRent] = useState()
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const registrationInfo = {fname, lname, email, dob, "accepted":0};
+        const leaseInfo = {email, building_no, unit_no, room, from_date, to_date, rent};
     
-        fetch('http://localhost:8080/register', {
+        fetch('http://localhost:8080/createLease', {
           method:'POST',
           mode: 'no-cors',
           headers: {'Content-Type': 'application/json',
           'cache-control': 'no-cache',
           'Access-Control-Request-Headers':'*',
           'Access-Control-Request-Method':'*' },
-          body: JSON.stringify(registrationInfo)
+          body: JSON.stringify(leaseInfo)
         }).then(() => {
-          console.log(registrationInfo);
+            setVisible(false)
+          console.log(leaseInfo);
         })
       }
     return(
@@ -75,15 +76,15 @@ const LeaseModal = (props) =>{
             <CModalBody>
             <CForm onSubmit={handleSubmit}>
                 <CFormFloating className="mb-3">
-                    <CFormInput onChange={(e) => setBNo(e.target.value)} placeholder="Building No" id="Building_No" />
+                    <CFormInput onChange={(e) => setBNo(parseInt(e.target.value))} placeholder="Building No" id="Building_No" />
                     <CFormLabel htmlFor="Building_No">Building Number</CFormLabel>
                 </CFormFloating>
                 <CFormFloating className="mb-3">
-                    <CFormInput onChange={(e) => setUNo(e.target.value)} placeholder="Unit No" id="Unit_No" />
+                    <CFormInput onChange={(e) => setUNo(parseInt(e.target.value))} placeholder="Unit No" id="Unit_No" />
                     <CFormLabel htmlFor="Unit_No">Unit Number</CFormLabel>
                 </CFormFloating>
                 <CFormFloating className="mb-3">
-                    <CFormInput onChange={(e) => setRoom(e.target.value)} placeholder="Room" id="Room" />
+                    <CFormInput onChange={(e) => setRoom(parseInt(e.target.value))} placeholder="Room" id="Room" />
                     <CFormLabel htmlFor="Room">Room</CFormLabel>
                 </CFormFloating>
                 <CFormFloating className="mb-3">
@@ -95,7 +96,8 @@ const LeaseModal = (props) =>{
                     <CFormLabel htmlFor="To_Date">To Date</CFormLabel>
                 </CFormFloating>
                 <CFormFloating className="mb-3">
-                    <CFormInput onChange={(e) => setRent(e.target.value)} placeholder="Rent (Monthly)" id="Rent" />
+                    <CFormInput onChange={(e) => {setRent(parseInt(e.target.value))
+                    setEmail(props.email)}} placeholder="Rent (Monthly)" id="Rent" />
                     <CFormLabel htmlFor="Rent">Rent</CFormLabel>
                 </CFormFloating>
                   <div className="d-grid">
