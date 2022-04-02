@@ -11,3 +11,5 @@ describe("Load these each time", () => {
         cy.get('#thisMac').should('not.exist');
     })
 })
+
+// npm install --save-dev cypress
