@@ -34,6 +34,13 @@ func main() {
 		c.JSON(200, applicants)
 	})
 
+	r.GET("/getAcceptedApplicants", func(c *gin.Context) {
+		var applicants []Applicant
+		result := Db.Where("Accepted = ?", 1).Find(&applicants)
+		fmt.Println(result)
+		c.JSON(200, applicants)
+	})
+
 	r.GET("/maintenanceRequests", func(c *gin.Context) {
 		var maintenanceRequests []MaintenanceRequest
 		result := Db.Find(&maintenanceRequests)
