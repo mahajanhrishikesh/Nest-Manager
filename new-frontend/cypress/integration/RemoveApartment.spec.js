@@ -4,36 +4,28 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
-describe("Add Apartment Test 1", () => {
+describe("Remove Apartment Test 1", () => {
     beforeEach(() => {
-        cy.visit("http://localhost:3000/#/apartments/add-apartment");
+        cy.visit("http://localhost:3000/#/apartments/remove-apartment");
     });
     it("Successfully visits add apartment page", () => {
-        cy.url().should("eq", "http://localhost:3000/#/apartments/add-apartment");
+        cy.url().should("eq", "http://localhost:3000/#/apartments/remove-apartment");
     });
 });
 
 
-
-describe("Add Apartment Test 2", () => {
+describe("Remove Apartment Test 2", () => {
     beforeEach(() => {
-        cy.visit("http://localhost:3000/#/apartments/add-apartment");
+        cy.visit("http://localhost:3000/#/apartments/remove-apartment");
     });
     it("Successfully writes to the form", () => {
         cy.get('#aptNo').type(
             "909"
         );
-        cy.wait(800);
+        cy.wait(500);
         cy.get('#blockNo').type(
             "9"
         );
-        cy.wait(800);
-        cy.get('#roomCount').type(
-            "3"
-        );
-        cy.wait(500);
-        cy.get('#furniture').select("Un-Furnished");
-        cy.wait(500);
         cy.get(".btn").click();
         cy.wait(2000);
     });
