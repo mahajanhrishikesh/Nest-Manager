@@ -45,7 +45,7 @@ function AT(props) {
             <div>{item.Dob}</div>
           </CTableDataCell>
           <CTableDataCell>
-            {data && <LeaseModal data={data}/>}
+            {data && <LeaseModal data={data} email={item.Email}/>}
           </CTableDataCell>
          
         </CTableRow>

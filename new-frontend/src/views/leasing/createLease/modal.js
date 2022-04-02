@@ -30,6 +30,8 @@ import {
     CModalBody,
     CModalFooter,
     CFormInput,
+    CFormLabel,
+    CFormFloating,
   } from '@coreui/react'
   import { cilLockLocked, cilUser, cilCalendar } from '@coreui/icons'
 
@@ -39,6 +41,14 @@ import {
 
 const LeaseModal = (props) =>{
     const [visible, setVisible] = useState(false)
+    const email = props.Email;
+    const [bno, setBNo] = useState()
+    const [uno, setUNo] = useState()
+    const [room, setRoom] = useState()
+    const [fromDate, setFromDate] = useState()
+    const [toDate, setToDate] = useState()
+    const [rent, setRent] = useState()
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const registrationInfo = {fname, lname, email, dob, "accepted":0};
@@ -60,34 +70,36 @@ const LeaseModal = (props) =>{
             <CButton onClick={() => setVisible(!visible)}>Get Details</CButton>
             <CModal visible={visible} onClose={() => setVisible(false)}>
             <CModalHeader>
-                <CModalTitle>{props.cardName} Status</CModalTitle>
+                <CModalTitle>{props.cardName} Assign Room To Accepted Applicant</CModalTitle>
             </CModalHeader>
             <CModalBody>
             <CForm onSubmit={handleSubmit}>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupText>
-                      <CIcon icon={cilUser} />
-                    </CInputGroupText>
-                    <CFormInput onChange={(e) => setFName(e.target.value)} placeholder="First Name" autoComplete="First Name" />
-                  </CInputGroup>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupText>
-                      <CIcon icon={cilUser} />
-                    </CInputGroupText>
-                    <CFormInput onChange={(e) => setLName(e.target.value)} placeholder="Last Name" autoComplete="Last Name" />
-                  </CInputGroup>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupText>@</CInputGroupText>
-                    <CFormInput onChange={(e) => setEmail(e.target.value)} placeholder="Email" autoComplete="email" />
-                  </CInputGroup>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupText>
-                      <CIcon icon={cilCalendar} />
-                    </CInputGroupText>
-                    <CFormInput onChange={(e) => setDOB(e.target.value)} type="date" placeholder='Date of Birth' />
-                  </CInputGroup>
+                <CFormFloating className="mb-3">
+                    <CFormInput onChange={(e) => setBNo(e.target.value)} placeholder="Building No" id="Building_No" />
+                    <CFormLabel htmlFor="Building_No">Building Number</CFormLabel>
+                </CFormFloating>
+                <CFormFloating className="mb-3">
+                    <CFormInput onChange={(e) => setUNo(e.target.value)} placeholder="Unit No" id="Unit_No" />
+                    <CFormLabel htmlFor="Unit_No">Unit Number</CFormLabel>
+                </CFormFloating>
+                <CFormFloating className="mb-3">
+                    <CFormInput onChange={(e) => setRoom(e.target.value)} placeholder="Room" id="Room" />
+                    <CFormLabel htmlFor="Room">Room</CFormLabel>
+                </CFormFloating>
+                <CFormFloating className="mb-3">
+                    <CFormInput onChange={(e) => setFromDate(e.target.value)} type="date" placeholder="From Date" id="From_Date" />
+                    <CFormLabel htmlFor="From_Date">From Date</CFormLabel>
+                </CFormFloating>
+                <CFormFloating className="mb-3">
+                    <CFormInput onChange={(e) => setToDate(e.target.value)} type="date" placeholder="To Date" id="To_Date" />
+                    <CFormLabel htmlFor="To_Date">To Date</CFormLabel>
+                </CFormFloating>
+                <CFormFloating className="mb-3">
+                    <CFormInput onChange={(e) => setRent(e.target.value)} placeholder="Rent (Monthly)" id="Rent" />
+                    <CFormLabel htmlFor="Rent">Rent</CFormLabel>
+                </CFormFloating>
                   <div className="d-grid">
-                    <CButton type='submit' color="success">Apply</CButton>
+                    <CButton type='submit' color="success">Create Lease</CButton>
                   </div>
                 </CForm>
             </CModalBody>
