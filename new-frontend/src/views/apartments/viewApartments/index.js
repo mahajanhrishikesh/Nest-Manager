@@ -1,5 +1,5 @@
-import React, { lazy } from 'react'
-
+import React, { lazy, useState, useEffect } from 'react'
+import Apt from './Apt';
 import {
     CAvatar,
     CButton,
@@ -47,9 +47,41 @@ import {
 
 
 const viewApartments = (props) => {
+  const [data, setData] = useState(null);
+  // let facilitiesMap = {};
+    const getData = () => {
+  
+      fetch("http://localhost:8080/getAllApartments").then(function (response) {
+        console.log(response);
+        return response.json();
+      }).then(function(myJSON){
+        console.log(myJSON);
+        setData(myJSON);
+        // generateMap(data);
+      })
+    }
+    useEffect(() => {
+      getData()
+    },[])
+
+    // console.log(data);
   return (
     <div>
-        <h2 id="thisEvent">View Apartments</h2>
+        <h2 id="thisEvent">Apartment Details</h2>
+        <CTable align="middle" className="mb-0 border" hover responsive bordered>
+          <CTableHead >
+            <CTableRow>
+              <CTableHeaderCell className="text-center">Apartment #</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Block #</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Room Count</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Furniture status</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Occupancy</CTableHeaderCell>
+            </CTableRow>
+          </CTableHead>
+          <CTableBody>
+            {data && <Apt Data ={data}/>}
+          </CTableBody>
+        </CTable>
     </div>
   )
 }
