@@ -1,11 +1,21 @@
-module github.com/auth0-blog/go-vr-auth
+module main
 
 go 1.17
 
-require (
-	github.com/auth0/go-jwt-middleware v1.0.1
-	github.com/gorilla/mux v1.8.0
-	github.com/rs/cors v1.8.2
-)
+require github.com/gofiber/fiber/v2 v2.32.0
 
-require github.com/form3tech-oss/jwt-go v3.2.2+incompatible
+require (
+	github.com/andybalholm/brotli v1.0.4 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/klauspost/compress v1.15.0 // indirect
+	github.com/mattn/go-sqlite3 v1.14.12 // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
+	github.com/valyala/fasthttp v1.35.0 // indirect
+	github.com/valyala/tcplisten v1.0.0 // indirect
+	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4 // indirect
+	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9 // indirect
+	gorm.io/driver/sqlite v1.3.1 // indirect
+	gorm.io/gorm v1.23.4 // indirect
+)
