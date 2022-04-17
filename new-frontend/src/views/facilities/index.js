@@ -93,7 +93,7 @@ const facilities = (props) => {
         </CRow>
         <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
           <CCol xs>
-            {data && <Facility cardName="Barbeque Deck" condition="danger" data ={data}/>}
+            {data && <Facility cardName="Vending Machine" condition="warning" data ={data}/>}
           </CCol>
           <CCol xs>
             {data && <Facility cardName="Basketball Court" condition="success" data ={data}/>}
@@ -119,6 +119,12 @@ const facilities = (props) => {
             {data && <Facility cardName="Sit-out" condition="warning" data ={data}/>}
           </CCol>
         </CRow>
+        <CRow xs={{ cols: 1, gutter: 4 }} md={{ cols: 4 }} className="my-auto">
+          <CCol xs>
+            {data && <Facility cardName="Barbeque Deck" condition="danger" data ={data}/>}
+          </CCol>
+        </CRow>
+        
     </div>
   )
 }
