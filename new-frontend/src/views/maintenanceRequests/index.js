@@ -41,6 +41,7 @@ const maintenanceRequest = (props) => {
             <CTableHeaderCell className="text-center">Facility</CTableHeaderCell>
             <CTableHeaderCell>Issue Tag</CTableHeaderCell>
             <CTableHeaderCell>Assign Personnel</CTableHeaderCell>
+            <CTableHeaderCell>Assigned Personnel </CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
