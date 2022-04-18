@@ -1,0 +1,20 @@
+.footer-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b2b2b;
+    padding: 3rem 0;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer h2 {
+    font-size: 1.6rem;
+    color: white;
+}

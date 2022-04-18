@@ -1,38 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Color pallett */
+/* Nav - #2b2b2b */
+/* Main background - #FBF5F3 */
+/* Accent 1 - #DD6E42 */
+/* Accent 1 - #869886 */
+
 .App {
   text-align: center;
+  font-family: 'Oswald', sans-serif;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  line-height: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.page-wrapper {
+  width: 100%;
+}
+
+.button {
+  background-color: #DD6E42;
+  padding: 0.6rem 0;
+  width: 100%;
+  border-radius: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  text-align: center;
+  font-size: 1.4rem;
+  transition: 0.2s ease-in-out;
   color: white;
+  border: 2px solid #dd6e4200
 }
 
-.App-link {
-  color: #61dafb;
+.button:hover {
+  color: white;
+  background-color: #2b2b2b;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.link {
+  width: 75%;
 }
