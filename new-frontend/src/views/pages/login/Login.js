@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useCallback, useState } from 'react'
+import { Link, Redirect } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -20,9 +20,28 @@ import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const Login = () => {
 
-  const onClickFn = useCallback(() => {
-    console.log(document.getElementById("username").value);
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [redirect, setRedirect] = useState(false);
+
+
+  const submit = async (e) => {
+      e.preventDefault();
+      await fetch('http://localhost:8080/api/login', {
+          method:'POST',
+          headers: {'Content-Type':'application/json'},
+          credentials: 'include',
+          body: JSON.stringify({
+              email, password
+          })
+      });
+      setRedirect(true);
+  }
+
+  if (redirect)
+  {
+      return <Redirect to="/"/>
+  }
 
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -33,13 +52,13 @@ const Login = () => {
               <CCard className="p-4">
               <CImage src='/cover.png' width={450} height={200}></CImage>
                 <CCardBody>
-                  <CForm>
+                  <CForm onSubmit={submit}>
                     <p className="text-medium-emphasis">Sign In to your account</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput id="username" placeholder="Username" autoComplete="username" />
+                      <CFormInput id="email" placeholder="Email" autoComplete="email" onChange={(e) => setEmail(e.target.value)}/>
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
@@ -50,11 +69,12 @@ const Login = () => {
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4" onClick={onClickFn}>
+                        <CButton color="primary" type='submit' className="px-4">
                           Login
                         </CButton>
                       </CCol>

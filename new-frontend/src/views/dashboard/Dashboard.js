@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import React, { lazy, useState, useEffect } from 'react'
 
 import {
   CAvatar,
@@ -55,6 +55,24 @@ const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))
 const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
 
 const Dashboard = () => {
+
+  const [name, setName] = useState('');
+  const [type, setType] = useState('');
+
+  useEffect(() => {
+      (
+          async () => {
+              const response = await fetch('http://localhost:8080/api/user', {
+                  headers: {'Content-Type':'application/json'},
+                  credentials:'include'
+              });
+              const content = await response.json();
+              setName(content.name);
+              setType(content.type);
+          }
+      )();
+  });
+
   const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
@@ -188,7 +206,7 @@ const Dashboard = () => {
           <CRow>
             <CCol sm={5}>
               <h4 id="traffic" className="card-title mb-0">
-                Traffic
+                Traffic {name}
               </h4>
               <div className="small text-medium-emphasis">January - July 2021</div>
             </CCol>
