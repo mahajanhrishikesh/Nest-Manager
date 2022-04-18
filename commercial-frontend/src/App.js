@@ -1,7 +1,4 @@
-import {
-  Routes,
-  Route
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // Styles
 import './reset.css';
@@ -23,26 +20,14 @@ function App() {
   return (
     <div className="App">
       <Navigation />
+    
         <Routes>
-          <Route exact path="/">
-            <Home />
-          </Route>
-
-          <Route path="/gallery">
-            <Gallery />
-          </Route>
-
-          <Route path="/floorplans">
-            <Floorplans />
-          </Route>
-
-          <Route path="/apply">
-            <Application />
-          </Route>
-
-          <Route path="/contact">
-            <Contact />
-          </Route>
+          {/* <Route path='/welcome' element={<Home/>} /> */}
+          <Route path="/" element = {<Home/>}  />
+          <Route path="/gallery" element = {<Gallery/>}  />
+          <Route path="/floorplans" element = {<Floorplans/>}  />
+          <Route path="/apply" element = {<Application />}  />
+          <Route path="/contact" element = {<Contact />}  />
         </Routes>
       <Footer />
     </div>
