@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import { Redirect } from 'react-router-dom'
+
 import {
   CAvatar,
   CBadge,
@@ -25,6 +27,23 @@ import CIcon from '@coreui/icons-react'
 import avatar8 from './../../assets/images/avatars/8.jpg'
 
 const AppHeaderDropdown = () => {
+
+  const [redirect, setRedirect] = useState(false);
+  const triggerLogout = async () => {
+    console.log("Hello")
+      await fetch('http://localhost:8080/api/logout', {
+          method:'POST',
+          headers: {'Content-Type':'application/json'},
+          credentials: 'include'
+      });
+      setRedirect(true)
+  }
+
+  if (redirect)
+  {
+    return <Redirect to="/login"/>
+  }
+
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
@@ -84,9 +103,9 @@ const AppHeaderDropdown = () => {
           </CBadge>
         </CDropdownItem>
         <CDropdownDivider />
-        <CDropdownItem href="#">
+        <CDropdownItem href="#" onClick={triggerLogout}>
           <CIcon icon={cilLockLocked} className="me-2" />
-          Lock Account
+          Logout
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>

@@ -1,7 +1,27 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
-import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler, CImage } from '@coreui/react'
+import {
+  cilBell,
+  cilCalculator,
+  cilChartPie,
+  cilCursor,
+  cilDrop,
+  cilNotes,
+  cilPencil,
+  cilPuzzle,
+  cilSpeedometer,
+  cilStar,
+  cilBowling,
+  cilPaint,
+  cilUserPlus,
+  cilRoom,
+  cilCasino,
+  cilPen,
+  cilBuilding,
+  cilPlus,
+  cilMinus,
+} from '@coreui/icons'
+import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler, CImage, CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
@@ -15,12 +35,110 @@ import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
 
 // sidebar nav config
-import navigation from '../_nav'
+import navigation from '../_nav';
+//import navigation from '../_nav_tenant';
 
-const AppSidebar = () => {
+const AppSidebar = (props) => {
   const dispatch = useDispatch()
   const unfoldable = useSelector((state) => state.sidebarUnfoldable)
   const sidebarShow = useSelector((state) => state.sidebarShow)
+  
+  //console.log(navigation)
+
+  const tenantNav = [
+      {
+          component: CNavItem,
+          name: 'Pay Rent',
+          to: '/payrent',
+          icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+      },
+      {
+          component: CNavItem,
+          name: 'Maintenance Request',
+          to: '/makemaintenancerequest',
+          icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+      },
+      {
+          component: CNavItem,
+          name: 'Overview',
+          to: '/tenantOverview',
+          icon: <CIcon icon={cilBowling} customClassName="nav-icon" />,
+      },
+  ]
+
+  const maintenanceNav = [
+    {
+        component: CNavItem,
+        name: 'Assigned MR',
+        to: '/assignedMR',
+        icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    },
+    {
+        component: CNavItem,
+        name: 'Work Overview',
+        to: '/workOverview',
+        icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    },
+]
+
+  if(props.type === "admin")
+  {
+    
+  }
+  else if (props.type === "maintenance")
+  {
+    return (
+      <CSidebar
+        position="fixed"
+        unfoldable={unfoldable}
+        visible={sidebarShow}
+        onVisibleChange={(visible) => {
+          dispatch({ type: 'set', sidebarShow: visible })
+        }}
+      >
+        <CSidebarBrand className="d-none d-md-flex" to="/">
+          <CImage src='/cover.png' width={225} height={100}></CImage>
+          <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+        </CSidebarBrand>
+        <CSidebarNav>
+          <SimpleBar>
+            <AppSidebarNav items={tenantNav} />
+          </SimpleBar>
+        </CSidebarNav>
+        <CSidebarToggler
+          className="d-none d-lg-flex"
+          onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
+        />
+      </CSidebar>
+    )
+  }
+  else if (props.type === "tenant")
+  {
+    return (
+      <CSidebar
+        position="fixed"
+        unfoldable={unfoldable}
+        visible={sidebarShow}
+        onVisibleChange={(visible) => {
+          dispatch({ type: 'set', sidebarShow: visible })
+        }}
+      >
+        <CSidebarBrand className="d-none d-md-flex" to="/">
+          <CImage src='/cover.png' width={225} height={100}></CImage>
+          <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+        </CSidebarBrand>
+        <CSidebarNav>
+          <SimpleBar>
+            <AppSidebarNav items={maintenanceNav} />
+          </SimpleBar>
+        </CSidebarNav>
+        <CSidebarToggler
+          className="d-none d-lg-flex"
+          onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
+        />
+      </CSidebar>
+    )
+  }
 
   return (
     <CSidebar
@@ -46,6 +164,7 @@ const AppSidebar = () => {
       />
     </CSidebar>
   )
+  
 }
 
 export default React.memo(AppSidebar)
