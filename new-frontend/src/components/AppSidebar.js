@@ -43,7 +43,7 @@ const AppSidebar = (props) => {
   const unfoldable = useSelector((state) => state.sidebarUnfoldable)
   const sidebarShow = useSelector((state) => state.sidebarShow)
   
-  //console.log(navigation)
+  console.log(props.type)
 
   const tenantNav = [
       {
@@ -102,7 +102,7 @@ const AppSidebar = (props) => {
         </CSidebarBrand>
         <CSidebarNav>
           <SimpleBar>
-            <AppSidebarNav items={tenantNav} />
+            <AppSidebarNav items={maintenanceNav} />
           </SimpleBar>
         </CSidebarNav>
         <CSidebarToggler
@@ -129,7 +129,7 @@ const AppSidebar = (props) => {
         </CSidebarBrand>
         <CSidebarNav>
           <SimpleBar>
-            <AppSidebarNav items={maintenanceNav} />
+            <AppSidebarNav items={tenantNav} />
           </SimpleBar>
         </CSidebarNav>
         <CSidebarToggler
