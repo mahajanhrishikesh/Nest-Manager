@@ -19,4 +19,42 @@ func FetchMaintenance(c *fiber.Ctx) error {
 	return c.JSON(mps)
 }
 
+func AssignPersonnel(c *fiber.Ctx) error {
+	var data map[string]string
+
+	if err := c.BodyParser(&data); err != nil {
+		return err
+	}
+	database.DB.Model(&models.MaintenanceRequest{}).Where("mr_no = ?", data["mr_no"]).Update("assigned_personnel", data["email"])
+	database.DB.Model(&models.MaintenanceRequest{}).Where("mr_no = ?", data["mr_no"]).Update("status", 1)
+	return c.JSON(200)
+}
+
 // result := Db.Where("Accepted = ?", 1).Find(&applicants)
+/*
+var data map[string]string
+
+	if err := c.BodyParser(&data); err != nil {
+		return err
+	}
+
+	password, _ := bcrypt.GenerateFromPassword([]byte(data["password"]), 14)
+	user := models.User{
+		Name:     data["name"],
+		Email:    data["email"],
+		Password: password,
+		Type:     data["type"],
+	}
+
+	database.DB.Create(&user)
+
+	return c.JSON(user)
+*/
+
+/*
+reqData, _ := ioutil.ReadAll(c.Request.Body)
+		var ap Applicant
+		json.Unmarshal(reqData, &ap)
+		// delRow := Applicant{Email: ap.Email, Accepted: ap.Accepted}
+		Db.Model(&Applicant{}).Where("email = ?", ap.Email).Update("accepted", ap.Accepted)
+*/

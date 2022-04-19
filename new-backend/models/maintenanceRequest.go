@@ -9,4 +9,5 @@ type MaintenanceRequest struct {
 	Issue_tag          string
 	Img                string
 	Assigned_personnel string
+	Status             int
 }
