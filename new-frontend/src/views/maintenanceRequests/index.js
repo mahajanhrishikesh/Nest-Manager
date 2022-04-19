@@ -15,7 +15,7 @@ const maintenanceRequest = (props) => {
   
   const getData = () => {
 
-    fetch("http://localhost:8080/maintenanceRequests").then(function (response) {
+    fetch("http://localhost:8080/api/maintenance-request").then(function (response) {
       console.log(response);
       return response.json();
     }).then(function(myJSON){
@@ -35,13 +35,15 @@ const maintenanceRequest = (props) => {
       <CTable align="middle" className="mb-0 border" hover responsive>
         <CTableHead color="light">
           <CTableRow>
-            <CTableHeaderCell>MR ID</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">MR ID</CTableHeaderCell>
             <CTableHeaderCell className="text-center">Created On</CTableHeaderCell>
-            <CTableHeaderCell>Description</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Description</CTableHeaderCell>
             <CTableHeaderCell className="text-center">Facility</CTableHeaderCell>
-            <CTableHeaderCell>Issue Tag</CTableHeaderCell>
-            <CTableHeaderCell>Assign Personnel</CTableHeaderCell>
-            <CTableHeaderCell>Assigned Personnel </CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Issue Tag</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Assign Personnel</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Assigned Personnel </CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Requested User</CTableHeaderCell>
+
           </CTableRow>
         </CTableHead>
         <CTableBody>

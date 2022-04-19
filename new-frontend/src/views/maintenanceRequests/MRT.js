@@ -15,19 +15,19 @@ function MRT(props) {
           <CTableDataCell className="text-center">
             <p>{item.Mr_no}</p>
           </CTableDataCell>
-          <CTableDataCell>
+          <CTableDataCell className="text-center">
             <div>{item.Created_on}</div>
           </CTableDataCell>
-          <CTableDataCell>
+          <CTableDataCell className="text-center">
             <div>{item.Issue_description}</div>
-          </CTableDataCell>
-          <CTableDataCell>
+          </CTableDataCell >
+          <CTableDataCell className="text-center">
             <div>{item.Facility}</div>
           </CTableDataCell>
-          <CTableDataCell>
+          <CTableDataCell className="text-center">
             <div>{item.Issue_tag}</div>
           </CTableDataCell>
-          <CTableDataCell>
+          <CTableDataCell className="text-center">
             <div>
             <CDropdown variant="btn-group">
                 <CButton color="secondary" size="sm">
@@ -43,6 +43,12 @@ function MRT(props) {
                 </CDropdownMenu>
               </CDropdown>
             </div>
+          </CTableDataCell>
+          <CTableDataCell>
+            <div>{item.Assigned_personnel} </div>
+          </CTableDataCell>
+          <CTableDataCell>
+            <div>{item.U_email} </div>
           </CTableDataCell>
         </CTableRow>
       ))}
