@@ -12,3 +12,11 @@ func MaintenanceRequest(c *fiber.Ctx) error {
 	database.DB.Find(&maintenanceRequests)
 	return c.JSON(maintenanceRequests)
 }
+
+func FetchMaintenance(c *fiber.Ctx) error {
+	var mps []models.User
+	database.DB.Where("type = ?", "maintenance").Find(&mps)
+	return c.JSON(mps)
+}
+
+// result := Db.Where("Accepted = ?", 1).Find(&applicants)

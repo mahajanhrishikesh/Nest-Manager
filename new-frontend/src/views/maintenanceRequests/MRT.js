@@ -35,11 +35,9 @@ function MRT(props) {
                 </CButton>
                 <CDropdownToggle color="secondary" size="sm" split />
                 <CDropdownMenu>
-                  <CDropdownItem>Action</CDropdownItem>
-                  <CDropdownItem>Another action</CDropdownItem>
-                  <CDropdownItem>Something else here</CDropdownItem>
-                  <CDropdownDivider />
-                  <CDropdownItem>Separated link</CDropdownItem>
+                {JSON.parse(props.mData).map((item2, idx) => (
+                  <CDropdownItem value={item2.email}>{item2.name}</CDropdownItem>
+                ))}
                 </CDropdownMenu>
               </CDropdown>
             </div>
