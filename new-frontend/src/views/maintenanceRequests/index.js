@@ -12,6 +12,7 @@ import {
 const maintenanceRequest = (props) => {
 
   const [data, setData] = useState(null);
+  const [maintenanceData, setMaintenanceData] = useState(null);
   
   const getData = () => {
 
@@ -23,8 +24,19 @@ const maintenanceRequest = (props) => {
       setData(JSON.stringify(myJSON));
     })
   }
+
+  const getMaintenance = () => {
+    fetch("http://localhost:8080/api/get-maintenance-personnel").then(function (response) {
+      console.log(response);
+      return response.json();
+    }).then(function(myJSON){
+      console.log(myJSON);
+      setMaintenanceData(JSON.stringify(myJSON));
+    })
+  }
   useEffect(() => {
     getData()
+    getMaintenance()
   },[])
 
   return (
@@ -47,7 +59,8 @@ const maintenanceRequest = (props) => {
           </CTableRow>
         </CTableHead>
         <CTableBody>
-          {data && <MRT tData ={data}/>}
+          {data && maintenanceData && <MRT tData ={data} mData = {maintenanceData}/>}
+
         </CTableBody>
       </CTable>
     </div>
