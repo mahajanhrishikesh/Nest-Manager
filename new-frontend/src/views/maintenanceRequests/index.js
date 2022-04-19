@@ -52,10 +52,10 @@ const maintenanceRequest = (props) => {
             <CTableHeaderCell className="text-center">Description</CTableHeaderCell>
             <CTableHeaderCell className="text-center">Facility</CTableHeaderCell>
             <CTableHeaderCell className="text-center">Issue Tag</CTableHeaderCell>
-            <CTableHeaderCell className="text-center">Assign Personnel</CTableHeaderCell>
             <CTableHeaderCell className="text-center">Assigned Personnel </CTableHeaderCell>
             <CTableHeaderCell className="text-center">Requested User</CTableHeaderCell>
-
+            <CTableHeaderCell className="text-center">Assign Personnel</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Action</CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
