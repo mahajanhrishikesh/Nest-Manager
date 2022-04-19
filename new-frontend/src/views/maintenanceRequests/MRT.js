@@ -11,9 +11,18 @@ import {
   } from '@coreui/react'
 import { useState } from 'react';
 function MRT(props) {
-  const [personnel, setPersonnel] = useState(null)
+
+  const [personnel, setPersonnel] = useState("n.hall@nestmanager.com,1")
   const assignPersonnel = () =>{
-      console.log(personnel)
+    var email = personnel.split(",")[0]
+    var mr_no = personnel.split(",")[1]
+    fetch('http://localhost:8080/api/assign-personnel', {
+        method:'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          email, mr_no
+        })
+    });
   }
     return <>
     {JSON.parse(props.tData).map((item, index) => (
@@ -45,13 +54,13 @@ function MRT(props) {
             <CFormSelect onChange={(e) => setPersonnel(e.target.value)}>
             <option> Select</option>
               {JSON.parse(props.mData).map((item2, idx) => (
-              <option value={item2.email}>{item2.name}</option>
+              <option value={item2.email+","+item.Mr_no}>{item2.name}</option>
               ))}
             </CFormSelect>
             </div>
           </CTableDataCell>
           <CTableDataCell>
-            <div><CButton> Assign</CButton> </div>
+            <CButton onClick={assignPersonnel}> Assign</CButton>
           </CTableDataCell>
         </CTableRow>
       ))}
