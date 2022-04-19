@@ -48,22 +48,34 @@ const AppSidebar = (props) => {
   const tenantNav = [
       {
           component: CNavItem,
-          name: 'Pay Rent',
-          to: '/payrent',
-          icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-      },
-      {
-          component: CNavItem,
-          name: 'Maintenance Request',
-          to: '/makemaintenancerequest',
-          icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-      },
-      {
-          component: CNavItem,
           name: 'Overview',
           to: '/tenantOverview',
           icon: <CIcon icon={cilBowling} customClassName="nav-icon" />,
       },
+      {
+        component: CNavGroup,
+        name: 'Maintenance Requests',
+        icon: <CIcon icon={cilBuilding} customClassName="nav-icon" />,
+        items: [
+          {
+            component: CNavItem,
+            name: 'Request Service',
+            to: '/tenantRequests/requestService',
+          },
+          {
+            component: CNavItem,
+            name: 'View Your Requests',
+            to: '/tenantRequests/viewTenantRequests',
+          },
+        ],
+      },
+      {
+        component: CNavItem,
+        name: 'Pay Rent',
+        to: '/payRent',
+        icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+      },
+      
   ]
 
   const maintenanceNav = [
@@ -83,7 +95,30 @@ const AppSidebar = (props) => {
 
   if(props.type === "admin")
   {
-    
+    return (
+      <CSidebar
+        position="fixed"
+        unfoldable={unfoldable}
+        visible={sidebarShow}
+        onVisibleChange={(visible) => {
+          dispatch({ type: 'set', sidebarShow: visible })
+        }}
+      >
+        <CSidebarBrand className="d-none d-md-flex" to="/">
+          <CImage src='/cover.png' width={225} height={100}></CImage>
+          <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+        </CSidebarBrand>
+        <CSidebarNav>
+          <SimpleBar>
+            <AppSidebarNav items={navigation} />
+          </SimpleBar>
+        </CSidebarNav>
+        <CSidebarToggler
+          className="d-none d-lg-flex"
+          onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
+        />
+      </CSidebar>
+    )
   }
   else if (props.type === "maintenance")
   {
@@ -139,32 +174,9 @@ const AppSidebar = (props) => {
       </CSidebar>
     )
   }
-
   return (
-    <CSidebar
-      position="fixed"
-      unfoldable={unfoldable}
-      visible={sidebarShow}
-      onVisibleChange={(visible) => {
-        dispatch({ type: 'set', sidebarShow: visible })
-      }}
-    >
-      <CSidebarBrand className="d-none d-md-flex" to="/">
-        <CImage src='/cover.png' width={225} height={100}></CImage>
-        <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
-      </CSidebarBrand>
-      <CSidebarNav>
-        <SimpleBar>
-          <AppSidebarNav items={navigation} />
-        </SimpleBar>
-      </CSidebarNav>
-      <CSidebarToggler
-        className="d-none d-lg-flex"
-        onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
-      />
-    </CSidebar>
+    <>Invalid Credentials</>
   )
-  
 }
 
 export default React.memo(AppSidebar)

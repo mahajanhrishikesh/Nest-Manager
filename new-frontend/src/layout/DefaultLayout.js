@@ -18,18 +18,31 @@ const DefaultLayout = () => {
       )();
   });
 
-  return (
-    <div>
-      <AppSidebar type={type}/>
-      <div className="wrapper d-flex flex-column min-vh-100 bg-light">
-        <AppHeader />
-        <div className="body flex-grow-1 px-3">
-          <AppContent />
+  if (type==="")
+  {
+    return (
+      <>
+        Invalid Login Credentials
+      </>
+    )
+  }
+  else
+  {
+    return (
+      <div>
+        <AppSidebar type={type}/>
+        <div className="wrapper d-flex flex-column min-vh-100 bg-light">
+          <AppHeader />
+          <div className="body flex-grow-1 px-3">
+            <AppContent />
+          </div>
+          <AppFooter />
         </div>
-        <AppFooter />
       </div>
-    </div>
-  )
+    )
+    
+  }
+  
 }
 
 export default DefaultLayout

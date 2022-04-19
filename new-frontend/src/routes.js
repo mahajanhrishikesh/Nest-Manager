@@ -4,6 +4,7 @@ import activeLeases from './views/leasing/activeLeases'
 import createLease from './views/leasing/createLease'
 import maintenanceRequest from './views/maintenanceRequests'
 import overview from './views/overview'
+import tenantOverview from './views/tenantOverview'
 
 
 
@@ -33,6 +34,10 @@ const Applicants = React.lazy(() => import('./views/applicants'))
 const Events = React.lazy(() => import('./views/events'));
 const CreateLease = React.lazy(() => import('./views/leasing/createLease'));
 const ActiveLeases = React.lazy(() => import('./views/leasing/activeLeases'));
+const RequestService = React.lazy(() => import('./views/tenantRequests/requestService'));
+const ViewTenantRequests = React.lazy(()=>import('./views/tenantRequests/viewTenantRequests'));
+const TenantOverview = React.lazy(() => import('./views/tenantOverview'));
+const PayRent = React.lazy(() => import('./views/payRent'));
 const ManagePersonnel = React.lazy(() => import('./views/manageMaintenance/managePersonnel'));
 const ManageRequests = React.lazy(() => import('./views/manageMaintenance/manageRequests'));
 const AddApartment = React.lazy(() => import('./views/apartments/addApartment'));
@@ -132,6 +137,12 @@ const routes = [
   { path: '/leasing', name: 'Leasing', component: ActiveLeases, exact:true},
   { path: '/leasing/active-leases', name: 'Active Leases', component: ActiveLeases},
   { path: '/leasing/create-lease', name: 'Create Lease', component: CreateLease},
+
+  { path: '/tenantRequests', name: 'Tenant Maintenance Requests', component: RequestService, exact:true},
+  { path: '/tenantRequests/requestService', name: 'Request Service', component: RequestService},
+  { path: '/tenantRequests/viewTenantRequests', name: 'View My Requests', component: ViewTenantRequests},
+  { path: '/tenantOverview', name: 'Tenant Overview', component: TenantOverview},
+  { path: '/payRent', name: 'Pay Rent', component: PayRent},
 ]
 
 export default routes
