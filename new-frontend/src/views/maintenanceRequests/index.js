@@ -12,10 +12,11 @@ import {
 const maintenanceRequest = (props) => {
 
   const [data, setData] = useState(null);
+  const [maintenanceData, setMaintenanceData] = useState(null);
   
   const getData = () => {
 
-    fetch("http://localhost:8080/maintenanceRequests").then(function (response) {
+    fetch("http://localhost:8080/api/maintenance-request").then(function (response) {
       console.log(response);
       return response.json();
     }).then(function(myJSON){
@@ -23,8 +24,19 @@ const maintenanceRequest = (props) => {
       setData(JSON.stringify(myJSON));
     })
   }
+
+  const getMaintenance = () => {
+    fetch("http://localhost:8080/api/get-maintenance-personnel").then(function (response) {
+      console.log(response);
+      return response.json();
+    }).then(function(myJSON){
+      console.log(myJSON);
+      setMaintenanceData(JSON.stringify(myJSON));
+    })
+  }
   useEffect(() => {
     getData()
+    getMaintenance()
   },[])
 
   return (
@@ -35,17 +47,20 @@ const maintenanceRequest = (props) => {
       <CTable align="middle" className="mb-0 border" hover responsive>
         <CTableHead color="light">
           <CTableRow>
-            <CTableHeaderCell>MR ID</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">MR ID</CTableHeaderCell>
             <CTableHeaderCell className="text-center">Created On</CTableHeaderCell>
-            <CTableHeaderCell>Description</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Description</CTableHeaderCell>
             <CTableHeaderCell className="text-center">Facility</CTableHeaderCell>
-            <CTableHeaderCell>Issue Tag</CTableHeaderCell>
-            <CTableHeaderCell>Assign Personnel</CTableHeaderCell>
-            <CTableHeaderCell>Assigned Personnel </CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Issue Tag</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Assigned Personnel </CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Requested User</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Assign Personnel</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Action</CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>
-          {data && <MRT tData ={data}/>}
+          {data && maintenanceData && <MRT tData ={data} mData = {maintenanceData}/>}
+
         </CTableBody>
       </CTable>
     </div>
