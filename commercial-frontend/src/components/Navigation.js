@@ -38,8 +38,12 @@ const Navigation = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                        <Nav.Link href="/gallery">Gallery</Nav.Link>
                         <Nav.Link href="/floorplans">Floor Plans</Nav.Link>
+                        <Nav.Link href="/gallery">Gallery</Nav.Link>
+                        <Nav.Link href="/amenities">Amenities</Nav.Link>
+                        
+                </Nav>
+                <Nav>
                         <Nav.Link href="/apply">Apply</Nav.Link>
                         <Nav.Link href="/contact">Contact</Nav.Link>
                 </Nav>
