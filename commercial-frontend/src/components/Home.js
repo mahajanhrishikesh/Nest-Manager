@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 import 'bootstrap/dist/css/bootstrap.css';
-import FbLogo from './assets/facebook.svg';
-import IgLogo from './assets/instagram.svg';
-import TwLogo from './assets/twitter.svg';
+import FbLogo from './assets/facebook_dark.svg';
+import IgLogo from './assets/instagram_dark.svg';
+import TwLogo from './assets/twitter_dark.svg';
 import { Carousel, Card, Button, Container, Row, Col} from 'react-bootstrap';
 
 // Styles
@@ -105,7 +105,13 @@ const Home = () => {
                               <Card.Img variant="top" src="https://source.unsplash.com/LWP7l0zsNqs" />
                               <Card.Body>
                               <Card.Title>Amenities</Card.Title>
-                              <Button className='align-self-left' href='/amenities' variant="primary">Explore</Button>
+                              {/* <Button className='align-self-left' href='/amenities' variant="primary">Explore</Button> */}
+                              <ul>
+                                    <li>Ramesh</li>
+                                    <li>Ramesh</li>
+                                    <li>Ramesh</li>
+                                    <li>Ramesh</li>
+                              </ul>
                               </Card.Body>
                         </Card>
                   </Col>
