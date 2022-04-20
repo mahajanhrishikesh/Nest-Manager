@@ -72,22 +72,20 @@ const viewTenantRequests = (props) => {
 
   return (
     <div>
-        <h2>Maintenance Request History</h2>\
-        <CTable align="middle" className="mb-0 border" hover responsive bordered>
+        <h2>Maintenance Request History</h2>
+        <CTable align="middle" className="mb-0 border striped hover" hover responsive bordered>
           <CTableHead >
             <CTableRow>
               <CTableHeaderCell className="text-center">Maint. Req. #</CTableHeaderCell>
-              <CTableHeaderCell className="text-center">Block #</CTableHeaderCell>
-              <CTableHeaderCell className="text-center">Room Count</CTableHeaderCell>
-              <CTableHeaderCell className="text-center">Furniture status</CTableHeaderCell>
-              <CTableHeaderCell className="text-center">Occupancy</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Created On</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Issue Description</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Facility Name</CTableHeaderCell>
             </CTableRow>
           </CTableHead>
           <CTableBody>
             {data && <Tmrt Data ={data}/>}
           </CTableBody>
         </CTable>
-        {data}
     </div>
   )
 }
