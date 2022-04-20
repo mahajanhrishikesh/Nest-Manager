@@ -15,13 +15,14 @@ func Setup(app *fiber.App) {
 	app.Get("/api/user", controllers.User)
 	app.Get("/api/maintenance-request", controllers.MaintenanceRequest)
 	app.Get("/api/get-maintenance-personnel", controllers.FetchMaintenance)
+	app.Post("/api/assigned-maintenance-requests", controllers.AssignedMaintenanceRequests)
 
 	//Applicant Routes
 	app.Get("/api/applicants", controllers.Applicants)
 	app.Get("/api/acceptedApplicants", controllers.AcceptedApplicants)
 	app.Post("/api/registerApplicant", controllers.RegisterApplicant)
 	app.Post("/api/setDecision", controllers.SetDecision)
-	
+
 	//Apartment Routes
 	app.Post("/api/createApartment", controllers.CreateApartment)
 	app.Get("/api/apartments", controllers.Apartments)
