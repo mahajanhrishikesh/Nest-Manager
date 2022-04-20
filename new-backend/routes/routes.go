@@ -25,4 +25,7 @@ func Setup(app *fiber.App) {
 	//Apartment Routes
 	app.Post("/api/createApartment", controllers.CreateApartment)
 	app.Get("/api/apartments", controllers.Apartments)
+
+	//Lease Routes
+	app.Post("/api/createLease", controllers.CreateLease)
 }
