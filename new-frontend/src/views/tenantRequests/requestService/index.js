@@ -81,7 +81,16 @@ const requestService = (props) => {
     //         </div>
     //     </CToast>
     // )
-
+    const [toast, addToast] = useState(0)
+    const toaster = useRef()
+    const confirmationToast = (
+        <CToast color="success" className="text-white align-items-center">
+            <div className="d-flex">
+                <CToastBody>Maintenance request generated successfully!</CToastBody>
+                <CToastClose className="me-2 m-auto" white />
+            </div>
+        </CToast>
+    )
   return (
     <div>
         <h2>Request Service</h2>
@@ -108,7 +117,8 @@ const requestService = (props) => {
                             </CFormFloating>
                             </CCol>
                         </CRow>
-                        <CButton type="submit">Submit</CButton>
+                        <CButton type="submit" onClick={() => addToast(confirmationToast)}>Submit</CButton>
+                        <CToaster ref={toaster} push={toast} placement="top-end" />
                     </CForm>
             </CCardBody>
         </CCard>
