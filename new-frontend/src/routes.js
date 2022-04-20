@@ -43,7 +43,7 @@ const ManageRequests = React.lazy(() => import('./views/manageMaintenance/manage
 const AddApartment = React.lazy(() => import('./views/apartments/addApartment'));
 const RemoveApartment = React.lazy(() => import('./views/apartments/removeApartment'));
 const ViewApartments = React.lazy(() => import('./views/apartments/viewApartments'));
-
+const AssignedMR = React.lazy(() => import('./views/AssignedMR'));
 
 // Buttons
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
@@ -143,6 +143,8 @@ const routes = [
   { path: '/tenantRequests/viewTenantRequests', name: 'View My Requests', component: ViewTenantRequests},
   { path: '/tenantOverview', name: 'Tenant Overview', component: TenantOverview},
   { path: '/payRent', name: 'Pay Rent', component: PayRent},
+  { path: '/assignedMR', name: 'Assigned MR', component: AssignedMR},
+
 ]
 
 export default routes
