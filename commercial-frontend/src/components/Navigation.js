@@ -44,7 +44,7 @@ const Navigation = () => {
                         
                 </Nav>
                 <Nav>
-                        <Nav.Link href="/apply">Apply</Nav.Link>
+                        <Nav.Link href="http://localhost:3000/#/register">Apply</Nav.Link>
                         <Nav.Link href="/contact">Contact</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
