@@ -30,6 +30,18 @@ func AssignPersonnel(c *fiber.Ctx) error {
 	return c.JSON(200)
 }
 
+func AssignedMaintenanceRequests(c *fiber.Ctx) error {
+	var data map[string]string
+
+	if err := c.BodyParser(&data); err != nil {
+		return err
+	}
+
+	var mps []models.MaintenanceRequest
+	database.DB.Where("Assigned_personnel = ?", data["email"]).Find(&mps)
+	return c.JSON(mps)
+}
+
 // result := Db.Where("Accepted = ?", 1).Find(&applicants)
 /*
 var data map[string]string
