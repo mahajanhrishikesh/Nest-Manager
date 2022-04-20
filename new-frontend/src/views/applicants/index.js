@@ -15,7 +15,7 @@ const applicants = (props) => {
   
   const getData = () => {
 
-    fetch("http://localhost:8080/getAllApplicants").then(function (response) {
+    fetch("http://localhost:8080/api/applicants").then(function (response) {
       console.log(response);
       return response.json();
     }).then(function(myJSON){
@@ -37,9 +37,9 @@ const applicants = (props) => {
           <CTableRow>
             <CTableHeaderCell className='text-center'>First Name</CTableHeaderCell>
             <CTableHeaderCell className="text-center">Last Name</CTableHeaderCell>
-            <CTableHeaderCell>Email</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Email</CTableHeaderCell>
             <CTableHeaderCell className="text-center">DOB</CTableHeaderCell>
-            <CTableHeaderCell>Accept/Reject</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Accept/Reject</CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>

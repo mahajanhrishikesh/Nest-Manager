@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useRef } from 'react'
 import {
   CButton,
   CCard,
@@ -11,33 +11,41 @@ import {
   CInputGroupText,
   CRow,
   CImage,
+  CToast,
+  CToastBody,
+  CToastClose,
+  CToaster,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser, cilCalendar } from '@coreui/icons'
 
 const Register = () => {
 
-  const[fname, setFName] = useState();
-  const[lname, setLName] = useState();
-  const[email, setEmail] = useState();
-  const[dob, setDOB] = useState();
+  const[fname, setFName] = useState('');
+  const[lname, setLName] = useState('');
+  const[dob, setDOB] = useState('');
+  const[email, setEmail] = useState('');
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+      await fetch('http://localhost:8080/api/registerApplicant', {
+          method:'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({
+              fname, lname, email, dob
+          })
+      }); 
+    }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const registrationInfo = {fname, lname, email, dob, "accepted":0};
-
-    fetch('http://localhost:8080/register', {
-      method:'POST',
-      mode: 'no-cors',
-      headers: {'Content-Type': 'application/json',
-      'cache-control': 'no-cache',
-      'Access-Control-Request-Headers':'*',
-      'Access-Control-Request-Method':'*' },
-      body: JSON.stringify(registrationInfo)
-    }).then(() => {
-      console.log(registrationInfo);
-    })
-  }
+    const [toast, addToast] = useState(0)
+    const toaster = useRef()
+    const confirmationToast = (
+        <CToast color="success" className="text-white align-items-center">
+            <div className="d-flex">
+                <CToastBody>Hey {fname} you will be hearing back from us soon!</CToastBody>
+                <CToastClose className="me-2 m-auto" white />
+            </div>
+        </CToast>
+    )
 
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -72,8 +80,9 @@ const Register = () => {
                     <CFormInput onChange={(e) => setDOB(e.target.value)} type="date" placeholder='Date of Birth' />
                   </CInputGroup>
                   <div className="d-grid">
-                    <CButton type='submit' color="success">Apply</CButton>
+                    <CButton type='submit' color="success" onClick={() => addToast(confirmationToast)}>Apply</CButton>
                   </div>
+                  <CToaster ref={toaster} push={toast} placement="top-end" />
                 </CForm>
               </CCardBody>
             </CCard>

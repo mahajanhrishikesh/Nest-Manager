@@ -51,7 +51,7 @@ const viewApartments = (props) => {
   // let facilitiesMap = {};
     const getData = () => {
   
-      fetch("http://localhost:8080/getAllApartments").then(function (response) {
+      fetch("http://localhost:8080/api/apartments").then(function (response) {
         console.log(response);
         return response.json();
       }).then(function(myJSON){
