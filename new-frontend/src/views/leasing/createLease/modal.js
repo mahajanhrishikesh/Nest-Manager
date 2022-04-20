@@ -23,6 +23,7 @@ import {
     CTableRow,
     CInputGroup,
     CInputGroupText,
+    CFormSelect,
     CForm,
     CModal,
     CModalHeader,
@@ -40,9 +41,12 @@ import {
 
 
 const LeaseModal = (props) =>{
+
+    const [sdd, setSDD] = useState([])
+
     const [visible, setVisible] = useState(false)
     const [email, setEmail] = useState(props.email)
-    const [building_no, setBNo] = useState()
+    const [block_no, setBNo] = useState(-999)
     const [unit_no, setUNo] = useState()
     const [room, setRoom] = useState()
     const [from_date, setFromDate] = useState()
@@ -51,21 +55,19 @@ const LeaseModal = (props) =>{
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const leaseInfo = {email, building_no, unit_no, room, from_date, to_date, rent};
-    
+        const leaseInfo = {email, block_no, unit_no, room, from_date, to_date, rent};
+
         fetch('http://localhost:8080/createLease', {
-          method:'POST',
-          mode: 'no-cors',
-          headers: {'Content-Type': 'application/json',
-          'cache-control': 'no-cache',
-          'Access-Control-Request-Headers':'*',
-          'Access-Control-Request-Method':'*' },
-          body: JSON.stringify(leaseInfo)
+            method:'POST',
+            body: JSON.stringify(leaseInfo),
         }).then(() => {
             setVisible(false)
-          console.log(leaseInfo);
+            console.log(leaseInfo);
         })
-      }
+    }
+
+    var data2 = null;
+
     return(
         <>
             <CButton onClick={() => setVisible(!visible)}>Get Details</CButton>
@@ -76,11 +78,26 @@ const LeaseModal = (props) =>{
             <CModalBody>
             <CForm onSubmit={handleSubmit}>
                 <CFormFloating className="mb-3">
-                    <CFormInput onChange={(e) => setBNo(parseInt(e.target.value))} placeholder="Building No" id="Building_No" />
+                    {/* <CFormInput onChange={(e) => setBNo(parseInt(e.target.value))} placeholder="Building No" id="Building_No" /> */}
+                    <CFormSelect onChange={(e) => {setBNo(parseInt(e.target.value))}} id="Block_No">
+                    <option> Select</option>
+                        {JSON.parse(props.data).map((item2, idx) => (
+                        <option value={item2.Block_No}>{item2.Block_No}</option>
+                        ))}
+                    </CFormSelect>
                     <CFormLabel htmlFor="Building_No">Building Number</CFormLabel>
                 </CFormFloating>
                 <CFormFloating className="mb-3">
-                    <CFormInput onChange={(e) => setUNo(parseInt(e.target.value))} placeholder="Unit No" id="Unit_No" />
+                    {/* <CFormInput onChange={(e) => setUNo(parseInt(e.target.value))} placeholder="Unit No" id="Unit_No" /> */}
+                    <CFormSelect onChange={(e) => setUNo(parseInt(e.target.value))} id="Unit_NO">
+                    <option> Select</option>
+                        {JSON.parse(props.data).map((item2, idx) => {
+                            if(item2.Block_No === block_no)
+                            {
+                                <option value={item2.Block_No}>{item2.Block_No}</option>
+                            }
+                        })}
+                    </CFormSelect>
                     <CFormLabel htmlFor="Unit_No">Unit Number</CFormLabel>
                 </CFormFloating>
                 <CFormFloating className="mb-3">

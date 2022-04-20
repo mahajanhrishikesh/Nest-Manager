@@ -15,7 +15,7 @@ const createLease = (props) => {
   
   const getData = () => {
 
-    fetch("http://localhost:8080/getAcceptedApplicants").then(function (response) {
+    fetch("http://localhost:8080/api/acceptedApplicants").then(function (response) {
       console.log(response);
       return response.json();
     }).then(function(myJSON){
@@ -37,9 +37,9 @@ const createLease = (props) => {
           <CTableRow>
             <CTableHeaderCell className='text-center'>First Name</CTableHeaderCell>
             <CTableHeaderCell className="text-center">Last Name</CTableHeaderCell>
-            <CTableHeaderCell>Email</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Email</CTableHeaderCell>
             <CTableHeaderCell className="text-center">DOB</CTableHeaderCell>
-            <CTableHeaderCell>Leasing</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Leasing</CTableHeaderCell>
           </CTableRow>
         </CTableHead>
         <CTableBody>

@@ -17,7 +17,7 @@ function AT(props) {
   
     const getData = () => {
 
-        fetch("http://localhost:8080/getAllApartments").then(function (response) {
+        fetch("http://localhost:8080/api/apartments").then(function (response) {
         console.log(response);
         return response.json();
         }).then(function(myJSON){
@@ -33,21 +33,20 @@ function AT(props) {
     {JSON.parse(props.tData).map((item, index) => (
         <CTableRow v-for="item in tableItems" key={index}>
           <CTableDataCell className="text-center">
-            <p>{item.Fname}</p>
+            <div>{item.Fname}</div>
           </CTableDataCell>
-          <CTableDataCell>
+          <CTableDataCell className="text-center">
             <div>{item.Lname}</div>
           </CTableDataCell>
-          <CTableDataCell>
+          <CTableDataCell className="text-center">
             <div>{item.Email}</div>
           </CTableDataCell>
-          <CTableDataCell>
+          <CTableDataCell className="text-center">
             <div>{item.Dob}</div>
           </CTableDataCell>
-          <CTableDataCell>
+          <CTableDataCell className="text-center">
             {data && <LeaseModal data={data} email={item.Email}/>}
           </CTableDataCell>
-         
         </CTableRow>
       ))}
     </>

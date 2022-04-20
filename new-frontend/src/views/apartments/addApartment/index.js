@@ -31,13 +31,9 @@ const addApartment = (props) => {
         e.preventDefault();
         const apartmentInfo = {apt_no, block_no, room_count, furniture_status, "occupancy":0};
 
-        fetch('http://localhost:8080/createApartment', {
+        fetch('http://localhost:8080/api/createApartment', {
             method:'POST',
-            mode: 'no-cors',
-            headers: {'Content-Type': 'application/json',
-            'cache-control': 'no-cache',
-            'Access-Control-Request-Headers':'*',
-            'Access-Control-Request-Method':'*' },
+            headers: {'Content-Type':'application/json'},
             body: JSON.stringify(apartmentInfo)
         }).then(() => {
             console.log(apartmentInfo);
