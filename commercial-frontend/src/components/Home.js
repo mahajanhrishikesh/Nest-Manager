@@ -16,7 +16,7 @@ import  prodItems  from '../data';
 
 const Home = () => {
   return (
-    <div className="page-wrapper">
+    <div className="bg-light">
             <div className='mb-5'>
                   <Carousel variant='light' style={{height:500}}>
                         <Carousel.Item interval={500}>
