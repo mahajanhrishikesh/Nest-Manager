@@ -105,13 +105,6 @@ const Home = () => {
                               <Card.Img variant="top" src="https://source.unsplash.com/LWP7l0zsNqs" />
                               <Card.Body>
                               <Card.Title>Amenities</Card.Title>
-                              {/* <Button className='align-self-left' href='/amenities' variant="primary">Explore</Button> */}
-                              <ul>
-                                    <li>Ramesh</li>
-                                    <li>Ramesh</li>
-                                    <li>Ramesh</li>
-                                    <li>Ramesh</li>
-                              </ul>
                               </Card.Body>
                         </Card>
                   </Col>
