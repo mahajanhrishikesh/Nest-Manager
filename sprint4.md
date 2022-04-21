@@ -48,13 +48,13 @@ To explain how an apartment space can utilize this service, we have partially ho
 </ol>
 
 # Demo video functionality 
- Demo Video Link: 
+ Demo Video Link: https://drive.google.com/file/d/1ac-w272xbB-fqh6v2dAYLLU3USVMoISl/view?usp=sharing
 
 # Cypress test video
  Cypress Test Video Link:
 
 # Backend unit test video
-Backend Test video link: 
+Backend Test video link: https://drive.google.com/file/d/1ZF6dFUbCn2QR8jj0kH8l_BIRPobcfr9O/view?usp=sharing
 
 # Link to API Documentation
 https://github.com/mahajanhrishikesh/SE-Project/wiki/Backend-API-Documentation
