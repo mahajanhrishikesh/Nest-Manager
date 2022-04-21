@@ -71,7 +71,7 @@ describe("Test 3", () => {
     beforeEach(() => {
         cy.visit("http://localhost:3000/#/login");
     });
-    it("Tests login, facilities and maintenance", () => {
+    it("Tests Adding personnel and maintenance dashboard login", () => {
         cy.viewport(1440, 800);
         cy.get('#email').type(
             "g.newton@nestmanager.com"
@@ -146,7 +146,6 @@ describe("Test 3", () => {
         cy.wait(500);
         cy.get(':nth-child(1) > .btn').click();
         cy.wait(800);
-       
        
         
     });
