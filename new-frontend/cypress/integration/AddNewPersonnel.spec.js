@@ -4,37 +4,43 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
-describe("Add Apartment Test 1", () => {
+describe("Add New Personnel Test 1", () => {
     beforeEach(() => {
-        cy.visit("http://localhost:3000/#/apartments/add-apartment");
+        cy.viewport(1440, 800);
+        cy.wait(1000);
+        cy.visit("http://localhost:3000/#/manage-maintenance/manage-personnel");
+
     });
     it("Successfully visits add apartment page", () => {
-        cy.url().should("eq", "http://localhost:3000/#/apartments/add-apartment");
+        cy.url().should("eq", "http://localhost:3000/#/manage-maintenance/manage-personnel");
     });
 });
 
 
 
-describe("Add Apartment Test 2", () => {
+describe("Add New Personnel Test 2", () => {
     beforeEach(() => {
-        cy.visit("http://localhost:3000/#/apartments/add-apartment");
+        cy.visit("http://localhost:3000/#/manage-maintenance/manage-personnel");
     });
     it("Successfully writes to the form", () => {
-        cy.get('#aptNo').type(
-            "909"
+        cy.get(':nth-child(2) > .form-control').type(
+            "Jeffrey Dahmar"
         );
         cy.wait(800);
-        cy.get('#blockNo').type(
-            "9"
+        cy.get(':nth-child(3) > .form-control').type(
+            "jeffd@nestmanager.com"
         );
         cy.wait(800);
-        cy.get('#roomCount').type(
-            "3"
+        cy.get(':nth-child(4) > .form-control').type(
+            "test123"
         );
-        cy.wait(500);
-        cy.get('#furniture').select("Un-Furnished");
         cy.wait(500);
         cy.get(".btn").click();
-        cy.wait(2000);
+        cy.wait(500);
+        cy.get('.avatar-img').click();
+        cy.wait(500);
+        cy.get(':nth-child(12) > .dropdown-item').click();
+        cy.wait(500);
+        cy.url().should("eq", "http://localhost:3000/#/login");
     });
 });
