@@ -4,7 +4,7 @@ import (
   //"net/http/httptest"
   "testing"
   "net/http"
-  //"fmt"
+  "fmt"
   //"github.com/gofiber/fiber/v2"
   "github.com/stretchr/testify/assert"
 )
@@ -48,17 +48,18 @@ func TestApartments(t *testing.T) {
 		expectedCode int
 	}{
 		{
-			description:  "Get HTTP status 200",
+			description:  "Get HTTP status 200 for apartments route",
 			route:        "http://localhost:8080/api/apartments",
 			expectedCode: 200,
 		},
 		{
-			description:  "get HTTP status 405, when route is asked for non mentioned request type",
+			description:  "get HTTP status 405, when route is asked for non mentioned request type for create apartments route",
 			route:        "http://localhost:8080/api/createApartment",
 			expectedCode: 405,
 		},
 	}
 	for _, test:=range tests {
+		fmt.Println(test.description)
 		resp, _ := http.Get(test.route)
 		assert.Equalf(t, test.expectedCode, resp.StatusCode, test.description)
 	}
