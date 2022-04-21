@@ -48,7 +48,7 @@ To explain how an apartment space can utilize this service, we have partially ho
 </ol>
 
 # Demo video functionality 
- Demo Video Link: 
+ Demo Video Link: https://drive.google.com/file/d/1ac-w272xbB-fqh6v2dAYLLU3USVMoISl/view?usp=sharing
 
 # Cypress test video
  Cypress Test Video Link:
