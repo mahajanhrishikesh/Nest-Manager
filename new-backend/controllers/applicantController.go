@@ -1,8 +1,13 @@
 package controllers
 
 import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"log"
 	"main/database"
 	"main/models"
+	"net/http"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -46,6 +51,18 @@ func SetDecision(c *fiber.Ctx) error {
 		return err
 	}
 	database.DB.Model(&models.Applicant{}).Where("email = ?", data["email"]).Update("accepted", data["accepted"])
+	if data["accepted"] == 1 {
+		fmt.Println("Setting up a fake user for testing the auth")
+		values := map[string]string{"name": "", "email": data["email"].(string), "password":"test123", "type":"tenant"}
+		json_data, err := json.Marshal(values)
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		resp, _ := http.Post("http://localhost:8080/api/register", "application/json", bytes.NewBuffer(json_data))
+		fmt.Println(resp)
+	}
 	return c.JSON(applicant)
 }
 

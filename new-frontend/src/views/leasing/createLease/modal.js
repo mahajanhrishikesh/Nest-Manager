@@ -88,8 +88,8 @@ const LeaseModal = (props) =>{
                     <CFormLabel htmlFor="Building_No">Building Number</CFormLabel>
                 </CFormFloating>
                 <CFormFloating className="mb-3">
-                    {/* <CFormInput onChange={(e) => setUNo(parseInt(e.target.value))} placeholder="Unit No" id="Unit_No" /> */}
-                    <CFormSelect onChange={(e) => setUNo(parseInt(e.target.value))} id="Unit_NO">
+                    <CFormInput onChange={(e) => setUNo(parseInt(e.target.value))} placeholder="Unit No" id="Unit_No" />
+                    {/* <CFormSelect onChange={(e) => setUNo(parseInt(e.target.value))} id="Unit_NO">
                     <option> Select</option>
                         {JSON.parse(props.data).map((item2, idx) => {
                             if(item2.Block_No === block_no)
@@ -97,7 +97,7 @@ const LeaseModal = (props) =>{
                                 <option value={item2.Block_No}>{item2.Block_No}</option>
                             }
                         })}
-                    </CFormSelect>
+                    </CFormSelect> */}
                     <CFormLabel htmlFor="Unit_No">Unit Number</CFormLabel>
                 </CFormFloating>
                 <CFormFloating className="mb-3">
