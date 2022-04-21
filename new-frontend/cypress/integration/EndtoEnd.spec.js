@@ -52,5 +52,11 @@ describe("Test 2", () => {
         cy.get('.simplebar-content > :nth-child(1) > .nav-link').click();
         cy.wait(800);
         cy.url().should("eq", "http://localhost:3000/#/overview");
+        // cy.get('.simplebar-content > :nth-child(1) > .nav-link').click();
+        cy.get('.simplebar-content > :nth-child(2) > .nav-link').click();
+        cy.wait(800);
+        cy.url().should("eq", "http://localhost:3000/#/facilities");
+        cy.wait(800)
+
     });
 });
