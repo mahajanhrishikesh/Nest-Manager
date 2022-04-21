@@ -16,10 +16,10 @@ function ALT(props) {
             <p>{item.Email}</p>
           </CTableDataCell>
           <CTableDataCell>
-            <div>{item.Building_No}</div>
+            <div>{item.Block_No}</div>
           </CTableDataCell>
           <CTableDataCell>
-            <div>{item.Unit_No}</div>
+            <div>{item.Apt_No}</div>
           </CTableDataCell>
           <CTableDataCell>
             <div>{item.Room}</div>

@@ -24,6 +24,20 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
 
+  const [type, setType] = useState('');
+
+  const getUserType = () => {
+      (
+          async () => {
+              const response = await fetch('http://localhost:8080/api/user', {
+                  headers: {'Content-Type':'application/json'},
+                  credentials:'include'
+              });
+              const content = await response.json();
+              setType(content.type);
+          }
+      )();
+  };
 
   const submit = async (e) => {
       e.preventDefault();
@@ -35,12 +49,23 @@ const Login = () => {
               email, password
           })
       });
+      await getUserType();
       setRedirect(true);
   }
 
-  if (redirect)
+  if (redirect && type==="maintenance")
   {
-      return <Redirect to="/"/>
+      return <Redirect to="/assignedMR"/>
+  }
+
+  if(redirect && type === "tenant")
+  {
+    return <Redirect to="/payRent"/>
+  }
+
+  if(redirect && type === "admin")
+  {
+    return <Redirect to="/"/>
   }
 
   return (

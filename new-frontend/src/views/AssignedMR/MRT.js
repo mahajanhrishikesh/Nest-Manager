@@ -12,15 +12,15 @@ import {
 import { useState } from 'react';
 function MRT(props) {
 
-  const [personnel, setPersonnel] = useState("n.hall@nestmanager.com,1")
-  const assignPersonnel = () =>{
-    var email = personnel.split(",")[0]
-    var mr_no = personnel.split(",")[1]
-    fetch('http://localhost:8080/api/assign-personnel', {
+
+  const handleSubmit = (mr_no) => {
+    console.log(mr_no)
+    fetch('http://localhost:8080/api/mad-maintenance-request', {
+        
         method:'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
-          email, mr_no
+          mr_no
         })
     });
   }
@@ -42,9 +42,12 @@ function MRT(props) {
           <CTableDataCell className="text-center">
             <div>{item.Issue_tag}</div>
           </CTableDataCell>
-        
           <CTableDataCell>
             <div>{item.U_email} </div>
+          </CTableDataCell>
+          <CTableDataCell>
+          <CButton className='m-1' color="success" value={item.Mr_no}
+             onClick = {(e) => {handleSubmit(parseInt(e.target.value))}} >Done</CButton>
           </CTableDataCell>
         </CTableRow>
       ))}

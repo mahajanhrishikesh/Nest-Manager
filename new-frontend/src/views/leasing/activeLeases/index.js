@@ -23,7 +23,7 @@ const activeLeases = (props) => {
   const [data, setData] = useState(null);
     const getData = () => {
   
-      fetch("http://localhost:8080/getLeases").then(function (response) {
+      fetch("http://localhost:8080/api/leases").then(function (response) {
         console.log(response);
         return response.json();
       }).then(function(myJSON){

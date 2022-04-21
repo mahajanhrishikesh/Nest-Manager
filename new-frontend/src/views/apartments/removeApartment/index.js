@@ -65,13 +65,10 @@ const removeApartment = (props) => {
     e.preventDefault();
     const info = {Apt_No, Block_No};
 
-    fetch('http://localhost:8080/removeApartment', {
+    fetch('http://localhost:8080/api/delete-apartment', {
       method:'POST',
       mode: 'no-cors',
-      headers: {'Content-Type': 'application/json',
-      'cache-control': 'no-cache',
-      'Access-Control-Request-Headers':'*',
-      'Access-Control-Request-Method':'*' },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(info)
     }).then(() => {
       console.log(info);

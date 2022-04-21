@@ -47,7 +47,7 @@ const LeaseModal = (props) =>{
     const [visible, setVisible] = useState(false)
     const [email, setEmail] = useState(props.email)
     const [block_no, setBNo] = useState(-999)
-    const [unit_no, setUNo] = useState()
+    const [apt_no, setUNo] = useState()
     const [room, setRoom] = useState()
     const [from_date, setFromDate] = useState()
     const [to_date, setToDate] = useState()
@@ -55,10 +55,11 @@ const LeaseModal = (props) =>{
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const leaseInfo = {email, block_no, unit_no, room, from_date, to_date, rent};
+        const leaseInfo = {email, block_no, apt_no, room, from_date, to_date, rent};
 
-        fetch('http://localhost:8080/createLease', {
+        fetch('http://localhost:8080/api/createLease', {
             method:'POST',
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(leaseInfo),
         }).then(() => {
             setVisible(false)
@@ -66,7 +67,6 @@ const LeaseModal = (props) =>{
         })
     }
 
-    var data2 = null;
 
     return(
         <>
@@ -78,13 +78,13 @@ const LeaseModal = (props) =>{
             <CModalBody>
             <CForm onSubmit={handleSubmit}>
                 <CFormFloating className="mb-3">
-                    {/* <CFormInput onChange={(e) => setBNo(parseInt(e.target.value))} placeholder="Building No" id="Building_No" /> */}
-                    <CFormSelect onChange={(e) => {setBNo(parseInt(e.target.value))}} id="Block_No">
+                    <CFormInput onChange={(e) => setBNo(parseInt(e.target.value))} placeholder="Building No" id="Building_No" />
+                    {/* <CFormSelect onChange={(e) => {setBNo(parseInt(e.target.value))}} id="Block_No">
                     <option> Select</option>
                         {JSON.parse(props.data).map((item2, idx) => (
                         <option value={item2.Block_No}>{item2.Block_No}</option>
                         ))}
-                    </CFormSelect>
+                    </CFormSelect> */}
                     <CFormLabel htmlFor="Building_No">Building Number</CFormLabel>
                 </CFormFloating>
                 <CFormFloating className="mb-3">
