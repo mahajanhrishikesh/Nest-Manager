@@ -60,7 +60,7 @@ const facilities = (props) => {
   // let facilitiesMap = {};
     const getData = () => {
   
-      fetch("http://localhost:8080/maintenanceRequests").then(function (response) {
+      fetch("http://localhost:8080/api/maintenance-request").then(function (response) {
         console.log(response);
         return response.json();
       }).then(function(myJSON){
