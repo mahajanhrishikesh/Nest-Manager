@@ -111,7 +111,17 @@ const requestService = (props) => {
                                     <option>Select</option>
                                     <option value="Unit">Unit</option>
                                     <option value="Pool">Pool</option>
-                                    <option value="PostBox">Postbox</option>
+                                    <option value="Post Boxes">Post Boxes</option>
+                                    <option value="Gym Equipment">Gym Equipment</option>
+                                    <option value="Club House">Club House</option>
+                                    <option value="Basketball Court">Basketball Court</option>
+                                    <option value="Street Lights">Street Lights</option>
+                                    <option value="Garbage">Garbage</option>
+                                    <option value="Internet">Internet</option>
+                                    <option value="Water">Water</option>
+                                    <option value="Electricity">Electricity</option>
+                                    <option value="Sit-out">Sit-out</option>
+                                    <option value="Barbeque Deck">Barbeque Deck</option>
                                 </CFormSelect>
                                 <CFormLabel htmlFor="floatingSelectGrid">Facility Name</CFormLabel>
                             </CFormFloating>
