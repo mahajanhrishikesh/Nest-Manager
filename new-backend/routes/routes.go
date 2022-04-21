@@ -31,4 +31,8 @@ func Setup(app *fiber.App) {
 
 	//Lease Routes
 	app.Post("/api/createLease", controllers.CreateLease)
+
+	//Payment routes
+	app.Post("/api/getDues", controllers.GetDues)
+	app.Post("/api/updateRent", controllers.UpdateRent)
 }

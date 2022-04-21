@@ -23,5 +23,6 @@ func Connect() {
 	connection.AutoMigrate(&models.MaintenanceRequest{})
 	connection.AutoMigrate(&models.Apartment{})
 	connection.AutoMigrate(&models.LeaseInformation{})
+	connection.AutoMigrate(&models.TenantBilling{})
 
 }
