@@ -28,9 +28,9 @@ const Contact = () => {
     <div className="container">
         <div className="form-container">
             <div className="title">
-                <h2>
-                        Fake Contact Form
-                </h2>
+                <h1 className='display-3' style={{fontFamily:"Ms Madi"}}>
+                    Contact Form
+                </h1>
             </div>
             <form className="form" onSubmit={handleSubmit}>
                 <label className="input-container">
@@ -80,7 +80,7 @@ const Contact = () => {
             </form>
             <div className="small-text">
                 <p>
-                        Give us ∞ hours to get back to you!
+                        We'll get back to you soon!
                 </p>
             </div>
         </div>

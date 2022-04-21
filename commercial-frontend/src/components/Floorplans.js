@@ -1,70 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import DatePicker from 'react-date-picker';
+// import { Link } from 'react-router-dom';
+// import DatePicker from 'react-date-picker';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import {Accordion, Badge, Carousel, Card, Button, Container, Row, Col} from 'react-bootstrap';
+import {Accordion, Badge, Card, Container, Row, Col} from 'react-bootstrap';
 
 
 // Styles
 // import './styles/floorplans.css';
 
-// Floorplans
-let twoBed = [
-      {     
-            title: "The Forest Walk",
-            plan: "http://www.crgliving.com/photos/floorplans/summit/2_bedroom_1_bath.jpg",
-            price: "$1,250",
-            sqrFt: "960 square feet"
-      },
-
-      {
-            title: "The Mountaineer",
-            plan: "http://www.rbahomes.com/images/FloorPlans/floor%20plan%20The%20Sandpiper.jpg",
-            price: "$1,600",
-            sqrFt: "1200 square feet"
-      },
-]
-
-let oneBed = [
-      {
-            title: "The Cave",
-            plan: "https://i.etsystatic.com/16380591/r/il/c38f17/2578010747/il_794xN.2578010747_8k95.jpg",
-            price: "$1,000",
-            sqrFt: "750 square feet"
-      },
-
-      {
-            title: "The Cliffside",
-            plan: "https://cdngeneral.rentcafe.com/dmslivecafe/3/662439/p0671372_1Bedroom_2_Floorplan.jpg?quality=85?quality=70&width=1400",
-            price: "$1,050",
-            sqrFt: "800 square feet"
-      },
-]
-
-let studio = [
-      {
-            title: "The Cove",
-            plan: "https://doorpinecrest.com/images/floorplans/studio.jpg",
-            price: "$700",
-            sqrFt: "650 square feet"
-      },
-
-      {
-            title: "The Field",
-            plan: "https://www.harrisonglendale.com/wp-content/uploads/2017/05/Harrison_Plan-S1.png",
-            price: "$650",
-            sqrFt: "607 square feet"
-      },
-]
 
 const Floorplans = () => {
 
   return (
     <div className="bg-light">
-          <div className='mt-20 display-2 ' style={{fontFamily: "Ms Madi"}}>Our Floor Plans</div>
-          <div className='offset-1 mt-10' style={{width:'80%'}}>
-          <Accordion bg="dark" className='mb-10' defaultActiveKey={['0']} alwaysOpen>
+          <div className='mt-5 display-2 ' style={{fontFamily: "Ms Madi"}}>Our Floor Plans</div>
+          <div className='offset-1 mt-5' style={{width:'80%'}}>
+          <Accordion bg="dark" className='mb-5' defaultActiveKey={['0']} alwaysOpen>
                   <Accordion.Item eventKey="0">
                   <Accordion.Header><h5>Two Bedroom</h5></Accordion.Header>
                   <Accordion.Body>

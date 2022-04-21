@@ -42,6 +42,41 @@ func AssignedMaintenanceRequests(c *fiber.Ctx) error {
 	return c.JSON(mps)
 }
 
+func CreateMaintenanceRequest(c *fiber.Ctx) error {
+	var data map[string]string
+
+	if err:= c.BodyParser(&data); err != nil {
+		return err
+	}
+	mr := models.MaintenanceRequest{
+		Mr_no:              0,
+		U_email:            data["email"],
+		Created_on:         data["created_on"],
+		Issue_description:  data["issueDesc"],
+		Facility:           data["fName"],
+		Issue_tag:          "",
+		Img:                "",
+		Assigned_personnel: "",
+		Status:             0,
+	}
+
+	database.DB.Create(&mr)
+
+	return c.JSON(mr)
+}
+
+func TenantMaintenanceRequest(c *fiber.Ctx) error {
+	var data map[string]string
+
+	if err := c.BodyParser(&data); err != nil {
+		return err
+	}
+
+	var mps []models.MaintenanceRequest
+	database.DB.Where("u_email = ?", data["email"]).Find(&mps)
+	return c.JSON(mps)
+}
+
 // result := Db.Where("Accepted = ?", 1).Find(&applicants)
 /*
 var data map[string]string
