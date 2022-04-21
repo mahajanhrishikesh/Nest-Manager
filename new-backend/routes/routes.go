@@ -18,6 +18,7 @@ func Setup(app *fiber.App) {
 	app.Get("/api/get-maintenance-personnel", controllers.FetchMaintenance)
 	app.Post("/api/assigned-maintenance-requests", controllers.AssignedMaintenanceRequests)
 	app.Post("/api/tenant-maintenance-requests", controllers.TenantMaintenanceRequest)
+	app.Post("/api/mad-maintenance-request", controllers.MadMaintenanceRequests)
 
 	//Applicant Routes
 	app.Get("/api/applicants", controllers.Applicants)
@@ -28,9 +29,12 @@ func Setup(app *fiber.App) {
 	//Apartment Routes
 	app.Post("/api/createApartment", controllers.CreateApartment)
 	app.Get("/api/apartments", controllers.Apartments)
+	app.Post("/api/delete-apartment", controllers.DeleteApartment)
 
 	//Lease Routes
 	app.Post("/api/createLease", controllers.CreateLease)
+	app.Post("/api/getUnit", controllers.GetUnit)
+	app.Get("/api/leases", controllers.Leases)
 
 	//Payment routes
 	app.Post("/api/getDues", controllers.GetDues)

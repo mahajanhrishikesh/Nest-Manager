@@ -9,7 +9,7 @@ import (
 
 func MaintenanceRequest(c *fiber.Ctx) error {
 	var maintenanceRequests []models.MaintenanceRequest
-	database.DB.Find(&maintenanceRequests)
+	database.DB.Where("status < ?", 2).Find(&maintenanceRequests)
 	return c.JSON(maintenanceRequests)
 }
 
@@ -38,9 +38,9 @@ func AssignedMaintenanceRequests(c *fiber.Ctx) error {
 	}
 
 	var mps []models.MaintenanceRequest
-	database.DB.Where("Assigned_personnel = ?", data["email"]).Find(&mps)
-	return c.JSON(mps)
-}
+		database.DB.Where("Assigned_personnel = ?", data["email"]).Where("status = ?", 1).Find(&mps)
+		return c.JSON(mps)
+	}
 
 func CreateMaintenanceRequest(c *fiber.Ctx) error {
 	var data map[string]string
@@ -48,8 +48,12 @@ func CreateMaintenanceRequest(c *fiber.Ctx) error {
 	if err:= c.BodyParser(&data); err != nil {
 		return err
 	}
+
+	var lmr models.MaintenanceRequest
+	database.DB.Last(&lmr)
+
 	mr := models.MaintenanceRequest{
-		Mr_no:              0,
+		Mr_no:              lmr.Mr_no + 1,
 		U_email:            data["email"],
 		Created_on:         data["created_on"],
 		Issue_description:  data["issueDesc"],
@@ -77,31 +81,12 @@ func TenantMaintenanceRequest(c *fiber.Ctx) error {
 	return c.JSON(mps)
 }
 
-// result := Db.Where("Accepted = ?", 1).Find(&applicants)
-/*
-var data map[string]string
-
+func MadMaintenanceRequests(c *fiber.Ctx) error {
+	var data map[string]interface{}
 	if err := c.BodyParser(&data); err != nil {
 		return err
 	}
 
-	password, _ := bcrypt.GenerateFromPassword([]byte(data["password"]), 14)
-	user := models.User{
-		Name:     data["name"],
-		Email:    data["email"],
-		Password: password,
-		Type:     data["type"],
-	}
-
-	database.DB.Create(&user)
-
-	return c.JSON(user)
-*/
-
-/*
-reqData, _ := ioutil.ReadAll(c.Request.Body)
-		var ap Applicant
-		json.Unmarshal(reqData, &ap)
-		// delRow := Applicant{Email: ap.Email, Accepted: ap.Accepted}
-		Db.Model(&Applicant{}).Where("email = ?", ap.Email).Update("accepted", ap.Accepted)
-*/
+	database.DB.Model(&models.MaintenanceRequest{}).Where("mr_no = ?", data["mr_no"]).Update("status", 2)
+	return c.JSON(200)
+}
