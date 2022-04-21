@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"main/database"
 	"main/models"
 
@@ -46,6 +47,9 @@ func SetDecision(c *fiber.Ctx) error {
 		return err
 	}
 	database.DB.Model(&models.Applicant{}).Where("email = ?", data["email"]).Update("accepted", data["accepted"])
+	if data["accepted"] == 1 {
+		fmt.Println("Accepted")
+	}
 	return c.JSON(applicant)
 }
 
