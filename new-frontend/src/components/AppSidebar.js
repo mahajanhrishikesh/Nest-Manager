@@ -47,12 +47,6 @@ const AppSidebar = (props) => {
 
   const tenantNav = [
       {
-          component: CNavItem,
-          name: 'Overview',
-          to: '/tenantOverview',
-          icon: <CIcon icon={cilBowling} customClassName="nav-icon" />,
-      },
-      {
         component: CNavGroup,
         name: 'Maintenance Requests',
         icon: <CIcon icon={cilBuilding} customClassName="nav-icon" />,

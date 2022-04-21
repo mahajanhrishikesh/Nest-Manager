@@ -1,4 +1,5 @@
-import React, { lazy, useState, useRef} from 'react'
+import React, { lazy, useState, useEffect, useRef} from 'react'
+import Tmrt from './Tmrt';
 
 import {
     CButton,
@@ -16,29 +17,75 @@ import {
     CToaster,
     CToastBody,
     CToastClose,
+    CTable,
+    CTableHead,
+    CTableBody,
+    CTableRow,
+    CTableHeaderCell,
 
   } from '@coreui/react'
 
 
 const viewTenantRequests = (props) => {
 
-    
+    const [email, setEmail] = useState('');
+    var content = null;
+  
+    const getUser = () => {
+        (
+            async () => {
+                const response = await fetch('http://localhost:8080/api/user', {
+                    headers: {'Content-Type':'application/json'},
+                    credentials:'include'
+                });
+                content = await response.json();
+                setEmail(content.email);
+                getData(content.email);
+            }
+        )();
+    };
 
-    // const [toast, addToast] = useState(0)
-    // const toaster = useRef()
-    // const confirmationToast = (
-    //     <CToast color="success" className="text-white align-items-center">
-    //         <div className="d-flex">
-    //             <CToastBody>Apartment number {apt_no} added successfully!</CToastBody>
-    //             <CToastClose className="me-2 m-auto" white />
-    //         </div>
-    //     </CToast>
-    // )
+    const [data, setData] = useState(null);
+    const [maintenanceData, setMaintenanceData] = useState(null);
+
+    const getData = (email) => {
+      console.log(email); 
+
+    fetch("http://localhost:8080/api/tenant-maintenance-requests", {
+        method:"POST",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          email
+        })
+    }).then(function (response) {
+        console.log(response)
+        return response.json();
+    }).then(function(myJSON){
+        setData(JSON.stringify(myJSON));
+    })
+    }
+
+  
+  useEffect(() => {
+    getUser()
+  },[])
 
   return (
     <div>
-        <h2>View My Requests</h2>
-        
+        <h2>Maintenance Request History</h2>
+        <CTable align="middle" className="mb-0 border striped hover" hover responsive bordered>
+          <CTableHead >
+            <CTableRow>
+              <CTableHeaderCell className="text-center">Maint. Req. #</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Created On</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Issue Description</CTableHeaderCell>
+              <CTableHeaderCell className="text-center">Facility Name</CTableHeaderCell>
+            </CTableRow>
+          </CTableHead>
+          <CTableBody>
+            {data && <Tmrt Data ={data}/>}
+          </CTableBody>
+        </CTable>
     </div>
   )
 }
