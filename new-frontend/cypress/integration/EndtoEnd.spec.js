@@ -17,7 +17,7 @@ describe("Test 1", () => {
 });
 
 
-    /*
+    
 describe("Test 2", () => {
     beforeEach(() => {
         cy.visit("http://localhost:3000/#/login");
@@ -71,7 +71,7 @@ describe("Test 3", () => {
     beforeEach(() => {
         cy.visit("http://localhost:3000/#/login");
     });
-    it("Tests login, facilities and maintenance", () => {
+    it("Tests Adding personnel and maintenance dashboard login", () => {
         cy.viewport(1440, 800);
         cy.get('#email').type(
             "g.newton@nestmanager.com"
@@ -126,18 +126,18 @@ describe("Test 3", () => {
     });
 });
 
-*/
 
 
 
-describe("Test 3", () => {
+
+describe("Test 4", () => {
     beforeEach(() => {
         cy.visit("http://localhost:3000/#/login");
     });
-    it("Tests login, facilities and maintenance", () => {
+    it("Tests tenant dashboard", () => {
         cy.viewport(1440, 800);
         cy.get('#email').type(
-            "g.newton@nestmanager.com"
+            "p.campbell@scdp.com"
         );
         cy.wait(800);
         cy.get('#password').type(
@@ -146,8 +146,20 @@ describe("Test 3", () => {
         cy.wait(500);
         cy.get(':nth-child(1) > .btn').click();
         cy.wait(800);
-       
-       
+        cy.get('.nav-group-toggle').click()
+        cy.wait(800)
+        cy.get('.nav-group-items > :nth-child(1) > .nav-link').click()
+        cy.wait(800)
+        cy.get('#issueDesc').type(
+            "Test Issue 1"
+        )
+        cy.get('#furniture').select("Pool",{force: true});
+        cy.wait(800)
+        cy.get('.btn').click()
+        cy.wait(800)
+        // cy.get('.nav-group-items > :nth-child(2) > .nav-link').click()
+        //cy.url().should("eq","")
+        //cy.url().should("eq", "")
         
     });
 
