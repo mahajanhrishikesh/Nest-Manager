@@ -51,7 +51,7 @@ To explain how an apartment space can utilize this service, we have partially ho
  Demo Video Link: https://drive.google.com/file/d/1ac-w272xbB-fqh6v2dAYLLU3USVMoISl/view?usp=sharing
 
 # Cypress test video
- Cypress Test Video Link:
+ Cypress Test Video Link: https://drive.google.com/file/d/11shVa0iB-_vDK554tQV6OIGx5pSEZ1jC/view?usp=sharing
 
 # Backend unit test video
 Backend Test video link: https://drive.google.com/file/d/1ZF6dFUbCn2QR8jj0kH8l_BIRPobcfr9O/view?usp=sharing
