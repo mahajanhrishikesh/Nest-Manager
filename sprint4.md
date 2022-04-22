@@ -75,6 +75,8 @@ https://github.com/mahajanhrishikesh/SE-Project/wiki/Backend-API-Documentation
 # Link to Project board
 https://github.com/mahajanhrishikesh/SE-Project/projects
 
+Do look into the closed sprint boards: https://github.com/mahajanhrishikesh/SE-Project/projects?query=is%3Aclosed
+
 # Link to Sprint 4 deliverables
 https://github.com/mahajanhrishikesh/SE-Project/projects/4
 
